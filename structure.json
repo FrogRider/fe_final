@@ -1,0 +1,50 @@
+{ 
+  "Meet lasagna": {
+    "type": "independent",
+    "price": 100,
+    "calories": 200,
+    "vegan": false,
+    "diet": false,
+    "glutenFree": false,
+    "weight": 200,
+    "picture": "/img/...",
+    "daysWhenAvailable": [1,5],
+    "quantity": 10
+  },
+  "Boiled white rice": {
+    "type":"garnish",
+    "price": 30,
+    "calories": 101,
+    "vegan": true,
+    "diet": true,
+    "glutenFree": true,
+    "weight": 100,
+    "picture": "/img/...",
+    "daysWhenAvailable": [1,3,4,5],
+    "quantity": 50
+  },
+  "Fried checken brest": {
+    "type":"main",
+    "price": 100,
+    "calories": 187,
+    "vegan": false,
+    "diet": true,
+    "glutenFree": true,
+    "weight": 150,
+    "picture": "/img/...",
+    "daysWhenAvailable": [1,3,4,5],
+    "quantity": 50
+  },
+  "Ketchup": {
+    "type": "sauce",
+    "price": 20,
+    "calories": 29,
+    "vegan": true,
+    "diet": true,
+    "glutenFree": true,
+    "weight": 30,
+    "picture": "/img/...",
+    "daysWhenAvailable": [1,3,4,5],
+    "quantity": 50}
+
+}
