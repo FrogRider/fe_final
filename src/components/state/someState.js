@@ -5,8 +5,8 @@ let initialState = {
     'theme': 'dark',  //default theme
     'vegan': false,   //show only vegan dishes
     'diet': false,    //show only diet dishes
-    'noGluten': false,//show only gluten free dishes
-    'caloriesFromTo': [0,1000],
+    'gluten_free': false,//show only gluten free dishes
+    // 'caloriesFromTo': [0,1000],
   },
   'order': [],        //dishes ids goes here
   'testing':[]

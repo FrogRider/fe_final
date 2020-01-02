@@ -35,6 +35,7 @@ let reducer = (state, action) => {
         if (el[0] === 'prefs') {
           Object.entries(el).map(el => {
             if (typeof el[1] === 'object') el[1][key] = !el[1][key];
+            return 0
           });
         }
       });

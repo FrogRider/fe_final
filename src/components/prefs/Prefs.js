@@ -11,7 +11,7 @@ class Prefs extends React.Component  {
     this.state = {
       vegan: settings['vegan'],
       diet: settings['diet'],
-      noGluten: settings['noGluten']
+      gluten_free: settings['gluten_free']
     }
   }
 
@@ -22,20 +22,8 @@ class Prefs extends React.Component  {
       for (let key in data) {
         this.props.dispatch({ type: 'setPref', payload: [key, data[key]] });
       }
-      for(let i in this.state) {
-        this.setState({ [i] : settings[i]})
-      }
+      for(let i in this.state) this.setState({ [i] : settings[i]})
     }
-
-      // Object.entries(settings).map(el => {
-      //   if(el[0] === 'theme')
-      //     {
-      //       settings['theme'] = 'text'
-      //     }
-      //     return settings
-      //   }
-      //   )
-      // console.log(settings)
   }
 
   change = type => {
@@ -45,15 +33,36 @@ class Prefs extends React.Component  {
   }
 
   render() {
-    return(
+    return (
       <div className="prefs block">
-        <label><input checked = {settings['vegan']} onChange={()=>{this.change('vegan')}} type="checkbox"/> Vegan</label>
+        {Object.entries(settings).map(e => {
+          let label = e[0].charAt(0).toUpperCase() + e[0].slice(1);
+          if (e[0] === 'vegan' || 
+              e[0] === 'diet'  || 
+              e[0] === 'gluten_free') {
+            return (
+              <p key={e[0]}>
+                <label>
+                  <input
+                    checked={settings[e[0]]}
+                    onChange={() => this.change(e[0])}
+                    type="checkbox"
+                  />
+                  {label}
+                </label>
+              </p>
+            );
+          }
+          return false;
+        })}
 
-        <label><input checked = {settings['diet']} onChange={()=>{this.change('diet')}} type="checkbox"/> Diet</label>
-        
-        <label><input checked = {settings['noGluten']} onChange={()=>{this.change('noGluten')}} type="checkbox"/> Gluten free</label>
+        {
+          //TODO:
+          //pagination setting
+          //reset button
+        }
       </div>
-    )
+    );
   }
 };
 
