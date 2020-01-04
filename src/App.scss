@@ -19,7 +19,8 @@
 }
 
 .block {
-  height: calc(100vh - 3em);
+  min-height: 100vh;
+  height: calc(100% - 3em);
   background: #ccc;
 
   &:first-of-type {

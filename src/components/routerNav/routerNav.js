@@ -9,27 +9,29 @@ import Main from '../main';
 import Menues from '../menu';
 import importedState from '../state/someState'
 
-function Routerr() {
+const Routerr = () => {
 
   // eslint-disable-next-line
   const [state, dispatch] = useReducer(appReducer, importedState);
+
+  const links = [
+    { to: '/menu', label: 'Menues' },
+    { to: '/contacts', label: 'Contacts' },
+    { to: '/info', label: 'Info' },
+    { to: '/prefs', label: 'Preferences' }
+  ];
 
   return (
     <Router>
       <nav>
         <ul className="menu">
-          <Link to="/menu">
-            <li>Menues</li>
-          </Link>
-          <Link to="/contacts">
-            <li>Contacts</li>
-          </Link>
-          <Link to="/info">
-            <li>Info</li>
-          </Link>
-          <Link to="/prefs">
-            <li>Preferences</li>
-          </Link>
+          {links.map(link => {
+            return (
+              <Link to={link['to']} key={link['label']}>
+                <li>{link['label']}</li>
+              </Link>
+            );
+          })}
         </ul>
       </nav>
 
@@ -37,14 +39,14 @@ function Routerr() {
         <Route exact path="/">
           <Main />
         </Route>
-        <Route exact path="/menu">
-          <Menues />
+        <Route path="/menu">
+          <Menues dispatch={dispatch}/>
         </Route>
-        <Route exact path="/contacts">
+        <Route path="/contacts">
           <Contacts />
         </Route>
         <Route path="/prefs">
-          <Prefs dispatch={dispatch}/>
+          <Prefs dispatch={dispatch} />
         </Route>
         <Route path="/info">
           <Info dispatch={dispatch} />

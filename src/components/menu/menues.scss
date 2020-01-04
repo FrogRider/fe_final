@@ -1,0 +1,18 @@
+.dish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 2px dotted tomato;
+
+  &:last-of-type{
+    border-bottom: 2px dotted #ccc;
+  }
+}
+
+button {
+  padding: 5px 10px;
+  background: rgb(160, 212, 125);
+  border-radius: 5px;
+  border: 2px solid tomato
+}

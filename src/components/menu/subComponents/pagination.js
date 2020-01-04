@@ -1,5 +1,6 @@
 import React from 'react';
-import dishes from '../structure.json'
+import dishes from '../structure.json';
+import Dish from './dishItem'
 import axios from 'axios';
 
 class Pagination extends React.Component {
@@ -11,17 +12,25 @@ class Pagination extends React.Component {
     });
   };
 
+  getWeekDay = () => new Date(Date.now()).getDay()
+
   render() {
     return (
       <div className="">
-        {Object.keys(dishes)
-          .map(e => {
-            // return <p key={e}>{dishes[e]['name']}</p>;
-            if(dishes[e]['type'] === 'main') {
-              return <p key={e}>{dishes[e]['name']}</p>
-            }
-          })
-        }
+        {Object.keys(dishes).map(e => {
+          let item = dishes[e];
+          return (
+            <Dish
+              dispatch={this.props.dispatch}
+              key={e}
+              pic={item['picture']}
+              name={item['name']}
+              price={item['price']}
+              calories={item['calories']}
+              id={e}
+            />
+          );
+        })}
       </div>
     );
   }
