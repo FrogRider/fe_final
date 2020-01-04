@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './routerNav.scss';
 import appReducer from '../state';
@@ -13,10 +13,6 @@ function Routerr() {
 
   // eslint-disable-next-line
   const [state, dispatch] = useReducer(appReducer, importedState);
-
-  useEffect(() => {
-    dispatch({ type: 'fill' }) //fills dishes list when page is loaded
-  }, []);
 
   return (
     <Router>

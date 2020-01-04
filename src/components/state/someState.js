@@ -1,5 +1,4 @@
 let initialState = {
-  'dishes': [],       //fills from json
   'prefs':{
     'pagination': 10, //10 dishes per page
     'theme': 'dark',  //default theme

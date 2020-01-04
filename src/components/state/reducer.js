@@ -1,8 +1,8 @@
-let getJson = async () => {
-  let resp = await fetch('/structure.json'); //public folder
-  let json = await resp.json();
-  return await json;
-};
+// let getJson = async () => {
+//   let resp = await fetch('/structure.json'); //public folder
+//   let json = await resp.json();
+//   return await json;
+// };
 
 let reducer = (state, action) => {
   switch (action.type) {
@@ -11,17 +11,17 @@ let reducer = (state, action) => {
       return state;
     }
 
-    case 'fill': {
-      if (state['dishes'].length === 0) {
-        getJson().then(result => {
-          for (let dish in result) {
-            result[dish]['id'] = state['dishes'].length;
-            state['dishes'].push({ [dish]: result[dish] });
-          }
-        });
-      }
-      return state;
-    }
+    // case 'fill': {
+    //   if (state['dishes'].length === 0) {
+    //     getJson().then(result => {
+    //       for (let dish in result) {
+    //         result[dish]['id'] = state['dishes'].length;
+    //         state['dishes'].push({ [dish]: result[dish] });
+    //       }
+    //     });
+    //   }
+    //   return state;
+    // } //???
 
     case 'errase': {
       state['dishes'] = [];
