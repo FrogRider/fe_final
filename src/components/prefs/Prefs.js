@@ -6,15 +6,6 @@ let settings = importedState['prefs']
 
 class Prefs extends React.Component  {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      vegan: settings['vegan'],
-      diet: settings['diet'],
-      gluten_free: settings['gluten_free']
-    }
-  }
-
   componentDidMount(){ //load data from localStore on reload
     let raw = localStorage.getItem('settings');
     if (raw !== null) {
@@ -22,14 +13,14 @@ class Prefs extends React.Component  {
       for (let key in data) {
         this.props.dispatch({ type: 'setPref', payload: [key, data[key]] });
       }
-      for(let i in this.state) this.setState({ [i] : settings[i]})
+      this.forceUpdate()
     }
   }
 
   change = type => {
     this.props.dispatch({ type: 'changePref', payload: type });
-    this.setState({ [type] : !this.state[type]}); //just for re-rendering checkboxes
-    localStorage.setItem('settings', JSON.stringify(settings))
+    this.forceUpdate()
+    localStorage.setItem('settings', JSON.stringify(settings));
   }
 
   render() {

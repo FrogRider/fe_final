@@ -12,7 +12,12 @@
 
 button {
   padding: 5px 10px;
-  background: rgb(160, 212, 125);
+  background: rgba(255, 99, 71, .3);
   border-radius: 5px;
-  border: 2px solid tomato
+  border: 2px solid tomato;
+  transition: .4s;
+
+  &:hover {
+    background: rgba(255, 99, 71, .4);
+  }
 }
