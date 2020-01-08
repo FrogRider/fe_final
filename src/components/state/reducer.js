@@ -22,10 +22,6 @@ let reducer = (state, action) => {
     //   }
     //   return state;
     // } //???
-    case 'test': {
-      console.log(action.payload)
-      return state
-    }
 
     case 'errase': {
       state['dishes'] = [];
@@ -43,6 +39,7 @@ let reducer = (state, action) => {
           });
         }
       });
+      // console.log(state['prefs'])
       return state;
     }
 

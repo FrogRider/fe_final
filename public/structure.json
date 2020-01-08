@@ -6,11 +6,12 @@
     "calories": 200,
     "vegan": false,
     "diet": false,
-    "glutenFree": false,
+    "gluten_free": false,
     "weight": 200,
     "picture": "dish.png",
     "availableOn": [1,5],
-    "quantity": 10
+    "quantity": 10,
+    "disabled": false
   },
   {
     "name": "Boiled white rice",
@@ -19,11 +20,12 @@
     "calories": 101,
     "vegan": true,
     "diet": true,
-    "glutenFree": true,
+    "gluten_free": true,
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [1,3,5],
-    "quantity": 50
+    "quantity": 50,
+    "disabled": false
   },
   {
     "name": "Fried chicken brest",
@@ -32,11 +34,12 @@
     "calories": 187,
     "vegan": false,
     "diet": true,
-    "glutenFree": true,
+    "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,3,4,5],
-    "quantity": 50
+    "quantity": 50,
+    "disabled": false
   },
   {
     "name": "Ketchup",
@@ -45,9 +48,11 @@
     "calories": 29,
     "vegan": true,
     "diet": true,
-    "glutenFree": true,
+    "gluten_free": true,
     "weight": 30,
     "picture": "dish.png",
     "availableOn": [1,3,4,5],
-    "quantity": 50}
+    "quantity": 50,
+    "disabled": false
+  }
 ]
