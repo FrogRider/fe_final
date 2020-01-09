@@ -2,18 +2,39 @@ class Services {
   // addToAnOrder (nameToFind, quantity) {
   //   let order;
   //   let local = JSON.parse(localStorage.getItem('orded'))
-    
+
   // }
 
-  backupOrder(dispatch) {
+  addToOrder(name, amount) {
     let raw = localStorage.getItem('order');
-    if (raw !== null) {
-      let data = JSON.parse(raw);
-      data.map(i => {
-        dispatch({ type: 'addToOrder', payload: [i['name'], i['quantity']] });
-      });
+    let data;
+
+    if (raw === null) data = [{ day: this.getWeekDay() }];
+    else data = JSON.parse(raw);
+
+    let dayCheck = data.find(e => e['day'] !== 'undefined')['day'];
+    console.log(dayCheck);
+    //clear order if it wasn't created today
+    if (dayCheck !== this.getWeekDay()) {
+      console.log('order cleared');
+      data = [{ day: this.getWeekDay() }];
     }
+
+    let find = data.find(e => e['name'] === name);
+    switch (typeof find) {
+      case 'undefined':
+        data.push({ name: name, q: amount });
+        break;
+      case 'object':
+        let idx = data.indexOf(find);
+        data[idx]['q'] += amount;
+        break;
+    }
+    localStorage.setItem('order', JSON.stringify(data));
+    console.log(data);
   }
+
+  getWeekDay = () => new Date(Date.now()).getDay();
 
   backupSettings(dispatch) {
     let raw = localStorage.getItem('settings');

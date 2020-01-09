@@ -6,7 +6,7 @@ const Menues = props => {
   return (
     <div className="menues block">
       <Pagination dispatch={props.dispatch}/>
-      Menues!
+      {/* Menues! */}
     </div>
   );
 };

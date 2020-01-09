@@ -5,6 +5,10 @@
   flex-direction: column;
   border-bottom: 2px dotted tomato;
 
+  &:first-of-type {
+    padding-top: 3em;
+  }
+
   &:last-of-type{
     border-bottom: none;
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import dishes from '../structure.json';
 import Dish from './dishItem';
 import state from '../../state/someState';
 import Service from '../../serviceFuncs';
@@ -23,11 +22,12 @@ class Pagination extends React.Component {
     //filter dishes by days
     updatedMeals.map(meal => {
       let days = meal['availableOn'];
-      if (days.indexOf(/*this.getWeekDay()*/ 4) === -1) {
+      if (days.indexOf(Service.getWeekDay()) === -1) {
         meal['disabled'] = true;
       }
     })
     
+    //filter by settngs
     updatedMeals.map(meal => {
       let compare = (what) => {
         let prefs = state['prefs']
@@ -43,7 +43,6 @@ class Pagination extends React.Component {
 
       
     })
-    //filter by settngs
     
     this.setState({
       meals: updatedMeals
@@ -66,11 +65,8 @@ class Pagination extends React.Component {
   componentDidMount() {
     Service.backupSettings(this.props.dispatch);
     this.prepareData();
+    console.log('Current day is ', Service.getWeekDay())
   }
-
-  dishesList = dishes;
-
-  getWeekDay = () => new Date(Date.now()).getDay();
 
   render() {
     // console.log(this.state['meals']);
