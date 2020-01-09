@@ -8,7 +8,9 @@ class Pagination extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      meals: []
+      meals: [],
+      curentPageContent: [],
+      pageNumber: 0
     };
   }
 
@@ -39,13 +41,16 @@ class Pagination extends React.Component {
       toCompare.map(i => {
         compare(i);
       })
-      // let settingsToCheck = ['vegan', 'diet', 'gluten_free'] 
-
-      
     })
-    
+
+    //filter only enabled ones
+    let enabled = updatedMeals.filter(e => e['disabled'] == false)
+
+    // console.log(updatedMeals)
+    let page = this.state['pageNumber']
     this.setState({
-      meals: updatedMeals
+      meals: enabled,
+      curentPageContent: enabled.splice(5*page,5)
     });
   }
 
@@ -66,12 +71,21 @@ class Pagination extends React.Component {
     Service.backupSettings(this.props.dispatch);
     this.prepareData();
     console.log('Current day is ', Service.getWeekDay())
+    // let count = new URLSearchParams( location.search ).get('p') || 1;
+  }
+
+  changePage(num){
+    this.setState({pageNumber: num})
+    this.prepareData();
   }
 
   render() {
-    // console.log(this.state['meals']);
+    console.log(this.state['pageNumber']);
     return (
-      <div className="dishesContainer">{this.display(this.state['meals'])}</div>
+      <div className="dishesContainer">
+        {this.display(this.state['curentPageContent'])}
+        <button onClick={()=>{this.changePage(this.state['pageNumber'] + 1)}}>Page</button>
+      </div>
     );
   }
 }
