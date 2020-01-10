@@ -1,12 +1,12 @@
 import React from 'react';
 import './menues.scss';
-import Pagination from './subComponents/pagination'
+import CreateMenu from './subComponents/CreateMenu'
 
 const Menues = props => {
   return (
     <div className="menues block">
-      <Pagination dispatch={props.dispatch}/>
-      {/* Menues! */}
+      <CreateMenu dispatch={props.dispatch}/>
+      Menues!
     </div>
   );
 };

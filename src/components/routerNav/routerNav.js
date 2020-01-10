@@ -9,7 +9,7 @@ import Main from '../main';
 import Menues from '../menu';
 import importedState from '../state/someState'
 
-const Routerr = () => {
+const myRouter = () => {
 
   // eslint-disable-next-line
   const [state, dispatch] = useReducer(appReducer, importedState);
@@ -56,4 +56,4 @@ const Routerr = () => {
   );
 }
 
-export default Routerr;
+export default myRouter;

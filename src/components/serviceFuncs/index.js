@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 class Services {
   // addToAnOrder (nameToFind, quantity) {
   //   let order;
@@ -5,6 +7,12 @@ class Services {
 
   // }
 
+  getPage = () => {
+    const urlObject = new URL(window.location);
+    const page = urlObject.searchParams.get('page');
+    if(page === null) return 0
+    else return +page
+  }
   addToOrder(name, amount) {
     let raw = localStorage.getItem('order');
     let data;
@@ -44,6 +52,46 @@ class Services {
         dispatch({ type: 'setPref', payload: [key, data[key]] });
       }
     }
+  }
+
+  async prepareData(prefs) {
+    let updatedMeals; //final filtered data goes here
+    //get dishes from json
+    await axios.get('/structure.json').then(res => {
+      updatedMeals = res['data'];
+    });
+
+    //filter dishes by days
+    updatedMeals.map(meal => {
+      let days = meal['availableOn'];
+      if (days.indexOf(this.getWeekDay()) === -1) {
+        meal['disabled'] = true;
+      }
+    });
+
+    //filter by settngs
+    updatedMeals.map(meal => {
+      let compare = what => {
+        // let prefs = prefs;
+        if (meal[what] === false && prefs[what] === true) {
+          meal['disabled'] = true;
+        }
+      };
+      const toCompare = ['vegan', 'diet', 'gluten_free'];
+      toCompare.map(i => {
+        compare(i);
+      });
+    });
+
+    // console.log(updatedMeals)
+    // let page = this.state['pageNumber'];
+    // this.setState({
+    //   meals: enabled,
+    //   curentPageContent: enabled.splice(5 * page, 5)
+    // });
+
+    //return only enabled ones
+    return updatedMeals.filter(e => e['disabled'] == false);
   }
 }
 

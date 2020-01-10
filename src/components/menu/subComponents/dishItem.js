@@ -15,7 +15,7 @@ let Dish = props => {
   return(
     
     <div className="dish card">
-      <a href="/contacts"><img src={'./img/' + pic} alt={name + ' pic'}/></a>
+      <a href="/contacts"><img src={'/img/' + pic} alt={name + ' pic'}/></a>
       <p>{name}</p>
       <p>Price: {price}</p>
       <p>Calories: {calories}</p>

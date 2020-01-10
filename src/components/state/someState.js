@@ -1,7 +1,6 @@
 let initialState = {
   'prefs':{
-    'pagination': 10, //10 dishes per page
-    // 'theme': 'dark',  //default theme
+    'pagination': 5, // items per page
     'vegan': false,   //show only vegan dishes
     'diet': false,    //show only diet dishes
     'gluten_free': false,//show only gluten free dishes
@@ -12,9 +11,7 @@ let initialState = {
                  {page: 3, active: false},
                  {page: 4, active: false},
                  {page: 5, active: false}
-                ],
-  'order': [],        //dishes ids goes here
-  'testing':[]
+                ]
 }
 
 export default initialState;

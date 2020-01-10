@@ -1,4 +1,4 @@
 {
   "extends": "react-app",
-  "allowImplicit": true
+  // "treatUndefinedAsUnspecified": true
 }
