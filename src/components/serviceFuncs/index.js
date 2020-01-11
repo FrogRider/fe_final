@@ -1,4 +1,5 @@
 import axios from 'axios';
+import state from '../state/someState';
 
 class Services {
   // addToAnOrder (nameToFind, quantity) {
@@ -6,13 +7,32 @@ class Services {
   //   let local = JSON.parse(localStorage.getItem('orded'))
 
   // }
+  switchKitchen = (k) => {
+    let data = localStorage.getItem('settings');
+    if (data === null) data = state['prefs'];
+    else data = JSON.parse(data);
+    if(data['kitchens'].indexOf(k) === -1) 
+      data['kitchens'].push(k)
+    else {
+      let idx = data['kitchens'].indexOf(k)
+      data['kitchens'].splice(idx,1)
+    }
+    console.log(data)
+    localStorage.setItem('settings', JSON.stringify(data))
+  };
+
+  getLoacalSettings(){
+    let data = localStorage.getItem('settings');
+    if (data === null) return state['prefs'];
+    else return JSON.parse(data);
+  }
 
   getPage = () => {
     const urlObject = new URL(window.location);
     const page = urlObject.searchParams.get('page');
-    if(page === null) return 0
-    else return +page
-  }
+    if (page === null) return 0;
+    else return +page;
+  };
   addToOrder(name, amount) {
     let raw = localStorage.getItem('order');
     let data;
@@ -36,6 +56,8 @@ class Services {
       case 'object':
         let idx = data.indexOf(find);
         data[idx]['q'] += amount;
+        break;
+      default:
         break;
     }
     localStorage.setItem('order', JSON.stringify(data));
@@ -83,6 +105,14 @@ class Services {
       });
     });
 
+    let kitchens = this.getLoacalSettings()['kitchens']
+    updatedMeals.map(meal => {
+      // console.log(kitchens.indexOf(meal['kitchen']) !== -1)
+      if(kitchens.indexOf(meal['kitchen']) !== -1){
+        meal['disabled'] = true;
+      }
+    })
+
     // console.log(updatedMeals)
     // let page = this.state['pageNumber'];
     // this.setState({
@@ -91,7 +121,7 @@ class Services {
     // });
 
     //return only enabled ones
-    return updatedMeals.filter(e => e['disabled'] == false);
+    return updatedMeals.filter(e => e['disabled'] === false);
   }
 }
 

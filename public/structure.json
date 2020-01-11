@@ -10,6 +10,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,3,5],
+    "kitchen": "chn",
     "disabled": false
   },
   {
@@ -23,6 +24,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2,7],
+    "kitchen": "fr",
     "disabled": false
   },
   {
@@ -36,6 +38,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,4,6],
+    "kitchen": "fr",
     "disabled": false
   },
   {
@@ -49,6 +52,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2,6,7],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -62,6 +66,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [3,5,7],
+    "kitchen": "ru",
     "disabled": false
   },
   {
@@ -75,6 +80,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [4,7],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -88,6 +94,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2,4],
+    "kitchen": "ua",
     "disabled": false
   },
   {
@@ -101,6 +108,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,6],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -114,6 +122,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,5,7],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -127,6 +136,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [3,6],
+    "kitchen": "it",
     "disabled": false
   },
   {
@@ -140,6 +150,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2,7],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -153,6 +164,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [4],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -166,6 +178,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2,5],
+    "kitchen": "usa",
     "disabled": false
   },
   {
@@ -179,6 +192,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [3],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -192,6 +206,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,5],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -205,6 +220,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [3,6],
+    "kitchen": "ua",
     "disabled": false
   },
   {
@@ -218,6 +234,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [4,7],
+    "kitchen": "it",
     "disabled": false
   },
   {
@@ -231,6 +248,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,4,6],
+    "kitchen": "usa",
     "disabled": false
   },
   {
@@ -244,6 +262,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2],
+    "kitchen": "chn",
     "disabled": false
   },
   {
@@ -257,6 +276,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [3,5,7],
+    "kitchen": "",
     "disabled": false
   },
 
@@ -273,6 +293,7 @@
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [1,5],
+    "kitchen": "fr",
     "disabled": false
   },
   {
@@ -286,6 +307,7 @@
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [1,3,4,5],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -299,6 +321,7 @@
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [2, 7],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -312,6 +335,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,5],
+    "kitchen": "usa",
     "disabled": false
   },
   {
@@ -325,6 +349,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,3,5],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -338,6 +363,7 @@
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [1,3,4,5],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -351,6 +377,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2,6],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -364,6 +391,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2,6],
+    "kitchen": "usa",
     "disabled": false
   },
   {
@@ -377,6 +405,7 @@
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [4,7],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -390,6 +419,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2,4,6],
+    "kitchen": "it",
     "disabled": false
   },
   {
@@ -403,6 +433,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,3,7],
+    "kitchen": "ru",
     "disabled": false
   },
   {
@@ -416,6 +447,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [2,3,6],
+    "kitchen": "usa",
     "disabled": false
   },
   {
@@ -429,6 +461,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [4,5,7],
+    "kitchen": "ua",
     "disabled": false
   },
   {
@@ -442,6 +475,7 @@
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [6,7],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -455,6 +489,7 @@
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [2,4,6],
+    "kitchen": "ua",
     "disabled": false
   },
   {
@@ -468,6 +503,7 @@
     "weight": 150,
     "picture": "dish.png",
     "availableOn": [1,7],
+    "kitchen": "eng",
     "disabled": false
   },
   {
@@ -481,6 +517,7 @@
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [3,5,7],
+    "kitchen": "",
     "disabled": false
   },
   {
@@ -494,6 +531,7 @@
     "weight": 100,
     "picture": "dish.png",
     "availableOn": [2,4,6],
+    "kitchen": "",
     "disabled": false
   },
 
@@ -510,6 +548,7 @@
     "weight": 30,
     "picture": "dish.png",
     "availableOn": [1,2,3,4,5,6,7],
+    "kitchen": "usa",
     "disabled": false
   },
   {
@@ -523,6 +562,7 @@
     "weight": 30,
     "picture": "dish.png",
     "availableOn": [1,2,3,4,5,6,7],
+    "kitchen": "ru",
     "disabled": false
   },
   {
@@ -536,6 +576,7 @@
     "weight": 30,
     "picture": "dish.png",
     "availableOn": [1,2,3,4,5,6,7],
+    "kitchen": "usa",
     "disabled": false
   },
   {
@@ -549,6 +590,7 @@
     "weight": 30,
     "picture": "dish.png",
     "availableOn": [1,2,3,4,5,6,7],
+    "kitchen": "chn",
     "disabled": false
   },
   {
@@ -562,6 +604,7 @@
     "weight": 30,
     "picture": "dish.png",
     "availableOn": [1,2,3,4,5,6,7],
+    "kitchen": "fr",
     "disabled": false
   },
   {
@@ -575,6 +618,7 @@
     "weight": 30,
     "picture": "dish.png",
     "availableOn": [1,2,3,4,5,6,7],
+    "kitchen": "usa",
     "disabled": false
   },
   {
@@ -588,6 +632,7 @@
     "weight": 30,
     "picture": "dish.png",
     "availableOn": [1,2,3,4,5,6,7],
+    "kitchen": "ua",
     "disabled": false
   },
   {
@@ -601,6 +646,7 @@
     "weight": 30,
     "picture": "dish.png",
     "availableOn": [1,2,3,4,5,6,7],
+    "kitchen": "usa",
     "disabled": false
   }
 

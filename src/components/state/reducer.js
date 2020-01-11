@@ -11,18 +11,6 @@ let reducer = (state, action) => {
       return state;
     }
 
-    // case 'fill': {
-    //   if (state['dishes'].length === 0) {
-    //     getJson().then(result => {
-    //       for (let dish in result) {
-    //         result[dish]['id'] = state['dishes'].length;
-    //         state['dishes'].push({ [dish]: result[dish] });
-    //       }
-    //     });
-    //   }
-    //   return state;
-    // } //???
-
     case 'errase': {
       state['dishes'] = [];
       return state;
