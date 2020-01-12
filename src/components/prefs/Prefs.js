@@ -16,7 +16,7 @@ class Prefs extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({'kitchens':Service.getLoacalSettings()['kitchens']})
+    // this.setState({'kitchens':Service.getLoacalSettings()['kitchens']})
     
     //load data from localStore on reload
     Service.backupSettings(this.props.dispatch);

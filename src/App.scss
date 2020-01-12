@@ -20,10 +20,20 @@
 
 .block {
   min-height: calc(100vh - 3em);
+  min-width: 100vw;
+  padding-top: 3em;
+  position: absolute;
+  top: 0;
+  font-family: NunitoRegular;
+
   // height: calc(100% - 3em);
   background: #ccc;
 
-  &:first-of-type {
-    padding-top: 3em;
-  }
+  // &:first-of-type {
+  //   padding-top: 3em;
+  // }
+}
+
+#root {
+  position: relative;
 }

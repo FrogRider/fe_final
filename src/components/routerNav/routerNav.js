@@ -8,6 +8,8 @@ import Info from '../info';
 import Main from '../main';
 import Menues from '../menu';
 import importedState from '../state/someState'
+import Order from '../order/Order';
+
 
 const myRouter = () => {
 
@@ -34,6 +36,7 @@ const myRouter = () => {
           })}
         </ul>
       </nav>
+      <Order />
 
       <Switch>
         <Route exact path="/">
@@ -49,7 +52,7 @@ const myRouter = () => {
           <Prefs dispatch={dispatch} />
         </Route>
         <Route path="/info">
-          <Info dispatch={dispatch} />
+          <Info />
         </Route>
       </Switch>
     </Router>

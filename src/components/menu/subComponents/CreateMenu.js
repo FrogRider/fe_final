@@ -2,6 +2,7 @@ import React from 'react';
 import Dish from './dishItem';
 import state from '../../state/someState';
 import Service from '../../serviceFuncs';
+import '../menues.scss';
 
 class CreateMenu extends React.Component {
   constructor(props) {
@@ -26,21 +27,24 @@ class CreateMenu extends React.Component {
               item['picture']
             ]}
             key={item['name']}
-          ></Dish>
+          />
         );
       }
     });
   };
 
-  changePage = (i) => {
+  changePage = i => {
     // let pagesNumber;
     // console.log(pagesNumber)
-    if(i < 0) i = 0
-    if(i > this.state['pagesSum'] - 1) i = this.state['pagesSum'] -1
-    console.log(i)
-    this.setState({pageNumber: i})
-    this.update()
-  }
+    if (i < 0) i = 0;
+    if (i > this.state['pagesSum'] - 1) i = this.state['pagesSum'] - 1;
+    console.log(i);
+    this.setState({ pageNumber: i });
+    this.update();
+    let href = window.location.href
+    console.log(href[href.length-1])
+    // window.location.assign(`${href}/#page=${i}`);
+  };
 
   update = () => {
     Service.prepareData(state['prefs']).then(res => {
@@ -49,14 +53,17 @@ class CreateMenu extends React.Component {
         meals: res,
         curentPageContent: res.splice(5 * this.state['pageNumber'], 5)
       });
-    })
-  }
+    });
+  };
 
   componentDidMount() {
-    this.setState({pageNumber: Service.getPage()})
+    this.setState({ pageNumber: Service.getPage() });
     Service.backupSettings(this.props.dispatch);
-    this.update()
+    this.update();
     console.log('Current day is ', Service.getWeekDay());
+    
+    
+
   }
 
   render() {
@@ -66,17 +73,20 @@ class CreateMenu extends React.Component {
         {this.display(this.state['curentPageContent'])}
         <button
           onClick={() => {
-            this.changePage(this.state['pageNumber'] + 1);
-          }}
-        >
-          Next page
-        </button>
-        <button
-          onClick={() => {
             this.changePage(this.state['pageNumber'] - 1);
           }}
+          className='menuButton'
         >
           Prev page
+        </button>
+
+        <button
+          onClick={() => {
+            this.changePage(this.state['pageNumber'] + 1);
+          }}
+          className='menuButton'
+        >
+          Next page
         </button>
       </div>
     );

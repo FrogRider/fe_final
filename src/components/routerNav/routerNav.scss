@@ -4,6 +4,7 @@ nav {
   background: tomato;
   color: #fff;
   position: fixed;
+  z-index: 5;
   font-family: NunitoBold;
 
   & .menu {

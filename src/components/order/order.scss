@@ -1,0 +1,119 @@
+@import '../../globalStyles/colors.scss';
+
+@font-face {
+  font-family: NunitoRegular;
+  src: url(/fonts/Nunito-Regular.ttf);
+}
+
+* {
+  font-family: NunitoRegular;
+}
+
+.orderCircle {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  opacity: .6;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  background: $green url(/img/shopping-cart.png) no-repeat center;
+  background-size: 40%;
+  cursor: pointer;
+  padding: 0;
+  border: 0px solid $green;
+  transition: padding 0.2s, border 0.3s ease ;
+
+  &:hover {
+    // transition: .3s;
+    padding: 5px;
+  }
+
+}
+
+.bigCircle {
+  padding: 5px;
+  border: 2px dotted white;
+}
+
+.popup {
+  width: calc(100vw - 10px);
+  height: calc(100vh - 10px);
+
+  position: fixed;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  background: rgb(136, 136, 136);
+  border-radius: 10px;
+  left: 5px;
+  top: 5px;
+  transform: translateX(0%);
+  transition: transform 0.5s, border-top-left-radius .67s;
+  opacity: 1;
+
+  & i {
+    display: block;
+  }
+
+  & button {
+    position: absolute;
+    bottom: 10px;
+
+    &:not(:disabled){
+      cursor: pointer;
+    }
+  }
+}
+
+.unvis {
+  // opacity: 0.2;
+  border-top-left-radius: 50% ;
+  transform: translateX(110%) translateY(110%);
+
+  & i {
+    display: none;
+  }
+}
+
+.emptyBasket {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  & p{
+    padding: 10px 0;
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
+
+.visible .orderItem {
+  padding: 5px;
+  text-align: justify
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background: url(/img/cancel.png) center no-repeat;
+  background-size: 60%;
+  transition: background-size .3s;
+
+  &:hover {
+    background-size: 75%;
+    cursor: pointer;
+  }
+}

@@ -33,6 +33,11 @@ class Services {
     if (page === null) return 0;
     else return +page;
   };
+
+  clearOrder = () => {
+    localStorage.setItem('order', JSON.stringify([{ day: this.getWeekDay() }]))
+  }
+  
   addToOrder(name, amount) {
     let raw = localStorage.getItem('order');
     let data;
