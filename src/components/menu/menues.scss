@@ -37,3 +37,34 @@ button {
     margin-left: 100px;
   }
 }
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+
+  & div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    margin: 0 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  // height: 300px;
+}
+
+.curentPagination {
+  color: red
+}

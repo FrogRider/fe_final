@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './routerNav.scss';
 import appReducer from '../state';
@@ -11,16 +11,24 @@ import importedState from '../state/someState'
 import Order from '../order/Order';
 
 
-const myRouter = () => {
+let MyRouter = () => {
 
   // eslint-disable-next-line
   const [state, dispatch] = useReducer(appReducer, importedState);
+  const [active, setActive] = useState([false,false,false,false]);
+
+  const changeTab = num => {
+    let newVal = [false,false,false,false]
+    newVal[num] = true;
+    setActive(newVal);
+    console.log(active)
+  }
 
   const links = [
-    { to: '/menu', label: 'Menues' },
-    { to: '/contacts', label: 'Contacts' },
-    { to: '/info', label: 'Info' },
-    { to: '/prefs', label: 'Preferences' }
+    { to: '/menu', label: 'Menues', num: 0 },
+    { to: '/contacts', label: 'Contacts', num: 1 },
+    { to: '/info', label: 'Info', num: 2 },
+    { to: '/prefs', label: 'Preferences', num: 3 }
   ];
 
   return (
@@ -29,8 +37,13 @@ const myRouter = () => {
         <ul className="menu">
           {links.map(link => {
             return (
-              <Link to={link['to']} key={link['label']}>
-                <li>{link['label']}</li>
+              <Link 
+                className={`${active[link['num']] === true ? 'active' : ''}`}
+                onClick={() => {changeTab(link['num'])}}
+                to={link['to']} 
+                key={link['label']}
+              >
+                <li>{link['label']} </li>
               </Link>
             );
           })}
@@ -59,4 +72,4 @@ const myRouter = () => {
   );
 }
 
-export default myRouter;
+export default MyRouter;

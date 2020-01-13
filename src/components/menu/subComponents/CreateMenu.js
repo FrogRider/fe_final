@@ -2,6 +2,7 @@ import React from 'react';
 import Dish from './dishItem';
 import state from '../../state/someState';
 import Service from '../../serviceFuncs';
+import Pagination from './paginationController'
 import '../menues.scss';
 
 class CreateMenu extends React.Component {
@@ -13,6 +14,7 @@ class CreateMenu extends React.Component {
       pageNumber: 0,
       pagesSum: 0
     };
+    this.handler = this.handler.bind(this)
   }
 
   display = items => {
@@ -24,7 +26,8 @@ class CreateMenu extends React.Component {
               item['name'],
               item['price'],
               item['calories'],
-              item['picture']
+              item['picture'],
+              item['type']
             ]}
             key={item['name']}
           />
@@ -34,26 +37,28 @@ class CreateMenu extends React.Component {
   };
 
   changePage = i => {
-    // let pagesNumber;
-    // console.log(pagesNumber)
     if (i < 0) i = 0;
     if (i > this.state['pagesSum'] - 1) i = this.state['pagesSum'] - 1;
     console.log(i);
     this.setState({ pageNumber: i });
     this.update();
-    let href = window.location.href
-    console.log(href[href.length-1])
-    // window.location.assign(`${href}/#page=${i}`);
+    // let href = window.location.href;
+    console.log(this.state['pagesSum'])
   };
 
   update = () => {
+    let perPage = state['prefs']['pagination'];
     Service.prepareData(state['prefs']).then(res => {
       this.setState({
         pagesSum: Math.ceil(res.length / state['prefs']['pagination']),
         meals: res,
-        curentPageContent: res.splice(5 * this.state['pageNumber'], 5)
+        curentPageContent: res.splice(
+          perPage * this.state['pageNumber'],
+          perPage
+        )
       });
     });
+    // console.error(this.state['pagesSum'])
   };
 
   componentDidMount() {
@@ -61,21 +66,25 @@ class CreateMenu extends React.Component {
     Service.backupSettings(this.props.dispatch);
     this.update();
     console.log('Current day is ', Service.getWeekDay());
-    
-    
+  }
 
+  handler(i){
+    this.setState({ pageNumber: i });
+    this.update()
   }
 
   render() {
-    console.log(this.state['meals']);
+    console.log(`Curent page = ${this.state['pageNumber']}`)
+    let handler = this.handler
     return (
       <div className="dishesContainer">
         {this.display(this.state['curentPageContent'])}
-        <button
+
+        {/* <button
           onClick={() => {
             this.changePage(this.state['pageNumber'] - 1);
           }}
-          className='menuButton'
+          className="menuButton"
         >
           Prev page
         </button>
@@ -84,10 +93,16 @@ class CreateMenu extends React.Component {
           onClick={() => {
             this.changePage(this.state['pageNumber'] + 1);
           }}
-          className='menuButton'
+          className="menuButton"
         >
           Next page
-        </button>
+        </button> */}
+        <Pagination 
+          page={handler.bind(this)} 
+          curent={this.state['pageNumber']}
+          pagesQuantity={this.state['pagesSum']}
+          
+          />
       </div>
     );
   }

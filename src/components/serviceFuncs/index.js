@@ -7,21 +7,20 @@ class Services {
   //   let local = JSON.parse(localStorage.getItem('orded'))
 
   // }
-  switchKitchen = (k) => {
+  switchKitchen = k => {
     let data = localStorage.getItem('settings');
     if (data === null) data = state['prefs'];
     else data = JSON.parse(data);
-    if(data['kitchens'].indexOf(k) === -1) 
-      data['kitchens'].push(k)
+    if (data['kitchens'].indexOf(k) === -1) data['kitchens'].push(k);
     else {
-      let idx = data['kitchens'].indexOf(k)
-      data['kitchens'].splice(idx,1)
+      let idx = data['kitchens'].indexOf(k);
+      data['kitchens'].splice(idx, 1);
     }
-    console.log(data)
-    localStorage.setItem('settings', JSON.stringify(data))
+    console.log(data);
+    localStorage.setItem('settings', JSON.stringify(data));
   };
 
-  getLoacalSettings(){
+  getLoacalSettings() {
     let data = localStorage.getItem('settings');
     if (data === null) return state['prefs'];
     else return JSON.parse(data);
@@ -35,9 +34,31 @@ class Services {
   };
 
   clearOrder = () => {
-    localStorage.setItem('order', JSON.stringify([{ day: this.getWeekDay() }]))
-  }
-  
+    localStorage.setItem('order', JSON.stringify([{ day: this.getWeekDay() }]));
+  };
+
+  getOrder = () => {
+    let raw = localStorage.getItem('order');
+
+    if (raw === null) return [{ day: this.getWeekDay() }];
+    else return JSON.parse(raw);
+  };
+
+  removeFromOrder = name => {
+    let order = this.getOrder();
+
+    let item = order.find(e => e['name'] === name);
+    if (item !== undefined) {
+      order.splice(0, 1);
+      let idx = order.indexOf(item);
+      order.splice(idx, 1);
+      order.unshift({ day: this.getWeekDay() });
+      localStorage.setItem('order', JSON.stringify(order));
+      console.log('deleted');
+    } else console.log('nothing to delete')
+    return order;
+  };
+
   addToOrder(name, amount) {
     let raw = localStorage.getItem('order');
     let data;
@@ -110,13 +131,13 @@ class Services {
       });
     });
 
-    let kitchens = this.getLoacalSettings()['kitchens']
+    let kitchens = this.getLoacalSettings()['kitchens'];
     updatedMeals.map(meal => {
       // console.log(kitchens.indexOf(meal['kitchen']) !== -1)
-      if(kitchens.indexOf(meal['kitchen']) !== -1){
+      if (kitchens.indexOf(meal['kitchen']) !== -1) {
         meal['disabled'] = true;
       }
-    })
+    });
 
     // console.log(updatedMeals)
     // let page = this.state['pageNumber'];

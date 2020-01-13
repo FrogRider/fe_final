@@ -5,7 +5,7 @@ import Service from '../../serviceFuncs'
 
 let Dish = props => {
 
-  let [name, price, calories, pic] = [...props.settings]
+  let [name, price, calories, pic, type] = [...props.settings]
 
   const add = () => {
     Service.addToOrder(name, 1)
@@ -15,12 +15,12 @@ let Dish = props => {
   return(
     
     <div className="dish card">
-      <a href="/contacts"><img src={'/img/' + pic} alt={name + ' pic'}/></a>
+      <p>{type.toUpperCase()}</p>
+      <img src={'/img/' + pic} alt={name + ' pic'}/>
       <p>{name}</p>
       <p>Price: {price}</p>
       <p>Calories: {calories}</p>
       <button onClick={()=> {add()}}>Add</button>
-      <hr/>
       <br/>
     </div>
   )

@@ -8,15 +8,23 @@ let Order = () => {
 
   useEffect(() => {
     setOrder(JSON.parse(localStorage.getItem('order')));
+    // Service.removeFromOrder('Ratatouille')
   }, [visible]);
 
   const orderContent = order.map(i => {
     if (i['name'] !== undefined) {
       return (
-        <p key={i['name']} className="orderItem">{`${i['name']}: ${i['q']}`}</p>
+        <p key={i['name']} className="orderItem">
+          {`${i['name']}: ${i['q']}`}
+          <i onClick = {()=>{removeItem(i['name'])}}>x</i>
+        </p>
       );
     }
   });
+
+  const removeItem = name => {
+    Service.removeFromOrder(name); setOrder(Service.getOrder())
+  }
 
   const empty = (
     <div className="emptyBasket">
@@ -35,13 +43,12 @@ let Order = () => {
   );
 
   return (
-    <div className="">
-      <div className={`popup ${visible == true ? 'unvis' : 0}`}>
+    <div>
+      <div tabIndex='0' className={`popup ${visible == true ? 'unvis' : 0}`}>
         {close}
         {order.length > 1 ? orderContent : empty}
         <button
-          onClick={(e, data) => {
-            console.log(e.target.value);
+          onClick={() => {
             Service.clearOrder();
             setVisible(true);
           }}
