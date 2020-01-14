@@ -4,31 +4,30 @@ import '../menues.scss'
 class PaginationController extends React.Component {
   constructor(props) {
     super(props);
+    
   }
+  page = this.props.changePage; //binded function
 
   fill = page => {
+    let curent = this.props.curent
     switch (page) {
       case 0:
         return [0, 1, 2];
       case (this.props.pagesQuantity - 1):
-        return[this.curent - 2, this.curent - 1, this.curent];
+        return[curent - 2, curent - 1, curent];
       default:
-        return[this.curent - 1, this.curent, this.curent + 1];
+        return[curent - 1, curent, curent + 1];
     }
   };
-
-  page = this.props.page; //func
 
   buttons = this.fill(this.props.curent);
   
   componentDidUpdate(){
-    this.curent = this.props.curent;
     this.buttons = this.fill(this.props.curent);
   }
 
   change = i => {
     this.page(i);
-    
     this.buttons = this.fill(this.props.curent);
     // this.curent = this.props.curent
   };
@@ -37,7 +36,9 @@ class PaginationController extends React.Component {
     console.log(this.props.pagesQuantity)
     return (
       <div className='pagination'>
-        <div onClick={()=>{this.change(0)}}> {'<<'} </div>
+        <div onClick={()=>{this.change(0)}}> 
+          {'<<'} 
+        </div>
         {this.buttons.map(b => {
           return (
             <div 
@@ -48,7 +49,9 @@ class PaginationController extends React.Component {
             </div>
           )
         })}
-        <div onClick={()=>{this.change(this.props.pagesQuantity - 1)}}> {'>>'} </div>
+        <div onClick={()=>{this.change(this.props.pagesQuantity - 1)}}> 
+          {'>>'} 
+        </div>
       </div>
     );
   }

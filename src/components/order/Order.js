@@ -5,6 +5,7 @@ import './order.scss';
 let Order = () => {
   const [visible, setVisible] = useState(true);
   const [order, setOrder] = useState(JSON.parse(localStorage.getItem('order')));
+  const [newItemInBasket, setNewItemInBasket] = useState(false);
 
   useEffect(() => {
     setOrder(JSON.parse(localStorage.getItem('order')));
@@ -44,7 +45,7 @@ let Order = () => {
 
   return (
     <div>
-      <div tabIndex='0' className={`popup ${visible == true ? 'unvis' : 0}`}>
+      <div tabIndex='0' className={`popup ${visible == true ? 'unvis' : ''}`}>
         {close}
         {order.length > 1 ? orderContent : empty}
         <button
@@ -61,7 +62,7 @@ let Order = () => {
         onClick={() => {
           setVisible(!visible);
         }}
-        className={`orderCircle ${visible == false ? 'bigCircle' : 0}`}
+        className={`orderCircle ${visible == false ? 'bigCircle' : ''}`}
       ></div>
     </div>
   );

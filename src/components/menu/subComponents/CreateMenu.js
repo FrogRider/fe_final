@@ -14,7 +14,7 @@ class CreateMenu extends React.Component {
       pageNumber: 0,
       pagesSum: 0
     };
-    this.handler = this.handler.bind(this)
+    this.changePage = this.changePage.bind(this)
   }
 
   display = items => {
@@ -34,16 +34,6 @@ class CreateMenu extends React.Component {
         );
       }
     });
-  };
-
-  changePage = i => {
-    if (i < 0) i = 0;
-    if (i > this.state['pagesSum'] - 1) i = this.state['pagesSum'] - 1;
-    console.log(i);
-    this.setState({ pageNumber: i });
-    this.update();
-    // let href = window.location.href;
-    console.log(this.state['pagesSum'])
   };
 
   update = () => {
@@ -68,37 +58,19 @@ class CreateMenu extends React.Component {
     console.log('Current day is ', Service.getWeekDay());
   }
 
-  handler(i){
+  changePage(i){
     this.setState({ pageNumber: i });
     this.update()
   }
 
   render() {
     console.log(`Curent page = ${this.state['pageNumber']}`)
-    let handler = this.handler
+    let changePage = this.changePage
     return (
       <div className="dishesContainer">
         {this.display(this.state['curentPageContent'])}
-
-        {/* <button
-          onClick={() => {
-            this.changePage(this.state['pageNumber'] - 1);
-          }}
-          className="menuButton"
-        >
-          Prev page
-        </button>
-
-        <button
-          onClick={() => {
-            this.changePage(this.state['pageNumber'] + 1);
-          }}
-          className="menuButton"
-        >
-          Next page
-        </button> */}
         <Pagination 
-          page={handler.bind(this)} 
+          changePage={changePage.bind(this)} 
           curent={this.state['pageNumber']}
           pagesQuantity={this.state['pagesSum']}
           

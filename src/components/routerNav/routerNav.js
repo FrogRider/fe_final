@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './routerNav.scss';
 import appReducer from '../state';
@@ -21,8 +21,15 @@ let MyRouter = () => {
     let newVal = [false,false,false,false]
     newVal[num] = true;
     setActive(newVal);
-    console.log(active)
+    localStorage.setItem('menu', JSON.stringify(newVal))
   }
+
+  useEffect(() => {
+    let raw = localStorage.getItem('menu');
+    if(raw != null) {
+      setActive(JSON.parse(raw))
+    }
+  },[]);
 
   const links = [
     { to: '/menu', label: 'Menues', num: 0 },
