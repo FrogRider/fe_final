@@ -16,7 +16,6 @@ class Services {
       let idx = data['kitchens'].indexOf(k);
       data['kitchens'].splice(idx, 1);
     }
-    console.log(data);
     localStorage.setItem('settings', JSON.stringify(data));
   };
 
@@ -24,6 +23,13 @@ class Services {
     let data = localStorage.getItem('settings');
     if (data === null) return state['prefs'];
     else return JSON.parse(data);
+  }
+
+  changeSettingByType = (type) => {
+    let s = this.getLoacalSettings();
+    s[type] = !s[type]
+    
+    localStorage.setItem('settings', JSON.stringify(s));
   }
 
   getPage = () => {
@@ -54,12 +60,11 @@ class Services {
       order.splice(idx, 1);
       order.unshift({ day: this.getWeekDay() });
       localStorage.setItem('order', JSON.stringify(order));
-      console.log('deleted');
     } else console.log('nothing to delete')
     return order;
   };
 
-  addToOrder(name, amount) {
+  addToOrder(name, amount, price) {
     let raw = localStorage.getItem('order');
     let data;
 
@@ -67,7 +72,7 @@ class Services {
     else data = JSON.parse(raw);
 
     let dayCheck = data.find(e => e['day'] !== 'undefined')['day'];
-    console.log(dayCheck);
+    // console.log(dayCheck);
     //clear order if it wasn't created today
     if (dayCheck !== this.getWeekDay()) {
       console.log('order cleared');
@@ -77,7 +82,7 @@ class Services {
     let find = data.find(e => e['name'] === name);
     switch (typeof find) {
       case 'undefined':
-        data.push({ name: name, q: amount });
+        data.push({ name: name, q: amount, p: price });
         break;
       case 'object':
         let idx = data.indexOf(find);
@@ -87,22 +92,13 @@ class Services {
         break;
     }
     localStorage.setItem('order', JSON.stringify(data));
-    console.log(data);
+    // console.log(data);
   }
 
   getWeekDay = () => new Date(Date.now()).getDay();
 
-  backupSettings(dispatch) {
-    let raw = localStorage.getItem('settings');
-    if (raw !== null) {
-      let data = JSON.parse(raw);
-      for (let key in data) {
-        dispatch({ type: 'setPref', payload: [key, data[key]] });
-      }
-    }
-  }
-
-  async prepareData(prefs) {
+  async prepareData() {
+    
     let updatedMeals; //final filtered data goes here
     //get dishes from json
     await axios.get('/structure.json').then(res => {
@@ -110,43 +106,48 @@ class Services {
     });
 
     //filter dishes by days
-    updatedMeals.map(meal => {
+    updatedMeals.forEach(meal => {
       let days = meal['availableOn'];
       if (days.indexOf(this.getWeekDay()) === -1) {
-        meal['disabled'] = true;
+        if(meal['disabled'] === false) {
+          if(state['debugger'] === true)
+            console.log(`%c ${meal['name']} disabled by day ${this.getWeekDay()} `, 'color: #bada55');
+          meal['disabled'] = true
+        }
       }
     });
 
     //filter by settngs
-    updatedMeals.map(meal => {
-      let compare = what => {
-        // let prefs = prefs;
-        if (meal[what] === false && prefs[what] === true) {
-          meal['disabled'] = true;
+    updatedMeals.forEach(meal => {
+      //comparator function
+      let localSettings = this.getLoacalSettings()
+      let compare = setting => {
+        if (meal[setting] === false && localSettings[setting] === true) {
+          if(meal['disabled'] === false) {
+            if(state['debugger'] === true)
+              console.log(`%c ${meal['name']} disabled by ${setting} `, 'color: #bada55')
+            meal['disabled'] = true
+          }
         }
       };
       const toCompare = ['vegan', 'diet', 'gluten_free'];
-      toCompare.map(i => {
+      toCompare.forEach(i => {
         compare(i);
       });
     });
 
     let kitchens = this.getLoacalSettings()['kitchens'];
-    updatedMeals.map(meal => {
+    updatedMeals.forEach(meal => {
       // console.log(kitchens.indexOf(meal['kitchen']) !== -1)
       if (kitchens.indexOf(meal['kitchen']) !== -1) {
-        meal['disabled'] = true;
+        if(meal['disabled'] === false) {
+          if(state['debugger'] === true)
+            console.log(`%c ${meal['name']} disabled by ${kitchens} `, 'color: #bada55');
+          meal['disabled'] = true
+        }
       }
     });
 
-    // console.log(updatedMeals)
-    // let page = this.state['pageNumber'];
-    // this.setState({
-    //   meals: enabled,
-    //   curentPageContent: enabled.splice(5 * page, 5)
-    // });
-
-    //return only enabled ones
     return updatedMeals.filter(e => e['disabled'] === false);
   }
 }

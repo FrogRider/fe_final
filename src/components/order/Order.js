@@ -1,59 +1,58 @@
 import React, { useState, useEffect } from 'react';
 import Service from '../serviceFuncs/index';
+import EmptyOrder from './emptyOrder';
+import CloseBtn from './closeBtn';
+import OrderInner from './orderInner';
 import './order.scss';
 
 let Order = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(true); //state of order window
   const [order, setOrder] = useState(JSON.parse(localStorage.getItem('order')));
-  const [newItemInBasket, setNewItemInBasket] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
     setOrder(JSON.parse(localStorage.getItem('order')));
-    // Service.removeFromOrder('Ratatouille')
+    setTotalPrice(getTotalPrice())
   }, [visible]);
 
-  const orderContent = order.map(i => {
-    if (i['name'] !== undefined) {
-      return (
-        <p key={i['name']} className="orderItem">
-          {`${i['name']}: ${i['q']}`}
-          <i onClick = {()=>{removeItem(i['name'])}}>x</i>
-        </p>
-      );
-    }
-  });
-
-  const removeItem = name => {
-    Service.removeFromOrder(name); setOrder(Service.getOrder())
+  const getTotalPrice = () => {
+    let total = 0;
+    let localOrder = JSON.parse(localStorage.getItem('order'))
+    localOrder.forEach(e => {
+      if(e['p'] !== undefined) total += e['p'] * e['q']
+    })
+    return total
   }
 
-  const empty = (
-    <div className="emptyBasket">
-      <p>There is nothing in here quiet yet...</p>
-      <p>Try adding some items to your basket</p>
-    </div>
-  );
-
-  const close = (
-    <i
-      className="close"
-      onClick={() => {
-        setVisible(true);
-      }}
-    ></i>
-  );
+  const delItem = name => {
+    Service.removeFromOrder(name); 
+    setOrder(Service.getOrder())
+    setTotalPrice(getTotalPrice())
+  }
 
   return (
     <div>
-      <div tabIndex='0' className={`popup ${visible == true ? 'unvis' : ''}`}>
-        {close}
-        {order.length > 1 ? orderContent : empty}
+      <div tabIndex="0" className={`popup ${visible === true ? 'unvis' : ''}`}>
+        <CloseBtn
+          close={() => {setVisible(true)}}
+        />
+        <div className="orderContent">
+          {order.length > 1 ? 
+            <OrderInner order={order} delItem={delItem} />
+           : 
+            <EmptyOrder />
+          }
+        </div>
+        <p className="price">
+          {totalPrice !== 0 ? `Total: ${totalPrice}` : ''}
+        </p>
+
         <button
           onClick={() => {
             Service.clearOrder();
             setVisible(true);
           }}
-          disabled={order.length === 1 ? true : false}
+          disabled={order.length === 1}
         >
           Clear order
         </button>
@@ -62,7 +61,7 @@ let Order = () => {
         onClick={() => {
           setVisible(!visible);
         }}
-        className={`orderCircle ${visible == false ? 'bigCircle' : ''}`}
+        className={`orderCircle ${visible === false ? 'bigCircle' : ''}`}
       ></div>
     </div>
   );

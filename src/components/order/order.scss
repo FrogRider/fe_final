@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: NunitoRegular;
-  src: url(/fonts/Nunito-Regular.ttf);
+  src: url(/fonts/Nunito-Regular.ttf) format('truetype');
 }
 
 * {
@@ -48,6 +48,7 @@
   z-index: 5;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 
   background: rgb(136, 136, 136);
@@ -116,4 +117,42 @@
     background-size: 75%;
     cursor: pointer;
   }
+}
+
+.orderContent {
+  width: 80%;
+  color: #000;
+  transition: color .3s;
+  max-width: 600px;
+  & .orderItem {
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, .2);
+    margin-bottom: 5px;
+    position: relative;
+    
+  }
+
+  & .orderItem:hover {
+    color: rgb(179, 68, 48)
+  }
+
+  i {
+    width: 15px;
+    height: 10px;
+    margin-left: 50px;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    transform: translateY(100%);
+    cursor: pointer;
+    & img {
+      width: 100%;
+    }
+  }
+}
+
+.price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

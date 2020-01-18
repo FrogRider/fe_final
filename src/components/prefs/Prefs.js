@@ -11,25 +11,21 @@ class Prefs extends React.Component {
     super(props);
     this.state = {
       key: 'value',
-      kitchens: Service.getLoacalSettings()['kitchens'] || []
+      kitchens: Service.getLoacalSettings()['kitchens'] || [],
+      localSettings: Service.getLoacalSettings()
     };
   }
 
   componentDidMount() {
-    // this.setState({'kitchens':Service.getLoacalSettings()['kitchens']})
-    
     //load data from localStore on reload
-    Service.backupSettings(this.props.dispatch);
-    this.setState({ key: 'value' });
+    this.setState({ localSettings: Service.getLoacalSettings() });
   }
 
 
   change = type => {
-    this.props.dispatch({ type: 'changePref', payload: type });
-    
-    localStorage.setItem('settings', JSON.stringify(settings));
+    Service.changeSettingByType(type)
     // this.setState({'kitchens':Service.getLoacalSettings()['kitchens']})
-    this.setState({ key: 'value' });
+    this.setState({ localSettings: Service.getLoacalSettings() });
   };
 
   render() {
@@ -43,7 +39,7 @@ class Prefs extends React.Component {
               <p key={e[0]}>
                 <label>
                   <input
-                    checked={settings[e[0]]}
+                    checked={this.state['localSettings'][e[0]]}
                     onChange={() => this.change(e[0])}
                     type="checkbox"
                   />

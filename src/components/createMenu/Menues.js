@@ -9,7 +9,7 @@ const Menues = props => {
   return (
     <Suspense fallback={<Preloader />}>
       <div className="menues block">
-        <CreateMenu dispatch={props.dispatch} />
+        <CreateMenu />
       </div>
     </Suspense>
   );

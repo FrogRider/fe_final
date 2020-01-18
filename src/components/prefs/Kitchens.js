@@ -16,7 +16,7 @@ const Kitchens = () => {
               Service.switchKitchen(e[0]);
               setKitchens(Service.getLoacalSettings()['kitchens'])
             }}
-            checked={kitchens.indexOf(e[0]) == -1}
+            checked={kitchens.indexOf(e[0]) === -1}
           />
           {e[1]}
         </label>

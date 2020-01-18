@@ -1,8 +1,8 @@
 import React from 'react';
-import Dish from './dishItem';
 import state from '../../state/someState';
 import Service from '../../serviceFuncs';
-import Pagination from './paginationController'
+import Pagination from './paginationController';
+import Render from './renderMenu'
 import '../menues.scss';
 
 class CreateMenu extends React.Component {
@@ -17,30 +17,11 @@ class CreateMenu extends React.Component {
     this.changePage = this.changePage.bind(this)
   }
 
-  display = items => {
-    return items.map(item => {
-      if (item['disabled'] === false) {
-        return (
-          <Dish
-            settings={[
-              item['name'],
-              item['price'],
-              item['calories'],
-              item['picture'],
-              item['type']
-            ]}
-            key={item['name']}
-          />
-        );
-      }
-    });
-  };
-
   update = () => {
     let perPage = state['prefs']['pagination'];
-    Service.prepareData(state['prefs']).then(res => {
+    Service.prepareData().then(res => {
       this.setState({
-        pagesSum: Math.ceil(res.length / state['prefs']['pagination']),
+        pagesSum: Math.ceil(res.length / perPage),
         meals: res,
         curentPageContent: res.splice(
           perPage * this.state['pageNumber'],
@@ -48,14 +29,11 @@ class CreateMenu extends React.Component {
         )
       });
     });
-    // console.error(this.state['pagesSum'])
   };
 
   componentDidMount() {
     this.setState({ pageNumber: Service.getPage() });
-    Service.backupSettings(this.props.dispatch);
     this.update();
-    console.log('Current day is ', Service.getWeekDay());
   }
 
   changePage(i){
@@ -64,13 +42,12 @@ class CreateMenu extends React.Component {
   }
 
   render() {
-    console.log(`Curent page = ${this.state['pageNumber']}`)
     let changePage = this.changePage
     return (
       <div className="dishesContainer">
-        {this.display(this.state['curentPageContent'])}
+        <Render items={this.state['curentPageContent']} />
         <Pagination 
-          changePage={changePage.bind(this)} 
+          changePage={changePage.bind(this)} //func that changes curent page 
           curent={this.state['pageNumber']}
           pagesQuantity={this.state['pagesSum']}
           

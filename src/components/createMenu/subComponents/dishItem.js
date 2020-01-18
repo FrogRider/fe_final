@@ -8,8 +8,7 @@ let Dish = props => {
   let [name, price, calories, pic, type] = [...props.settings]
 
   const add = () => {
-    Service.addToOrder(name, 1)
-    console.log(localStorage.getItem('order'))
+    Service.addToOrder(name, 1, price)
   }
 
   return(
