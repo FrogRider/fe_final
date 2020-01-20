@@ -14,12 +14,14 @@ let Dish = props => {
   return(
     
     <div className="dish card">
-      <p>{type.toUpperCase()}</p>
-      <img src={'/img/' + pic} alt={name + ' pic'}/>
+      <p className='dishType'>{type.toUpperCase()}</p>
+      <div className="imgPlaceHolder">
+        <img src={'./img/' + pic} alt={name + ' pic'} title={name}/>
+      </div>
       <Spec specs={[vegan, diet, gluten_free]} />
       <p>{name}</p>
-      <p>Price: {price}</p>
       <p>Calories: {calories}</p>
+      <p>Price: {price}</p>
       <button onClick={()=> {add()}}>Add</button>
       <br/>
     </div>

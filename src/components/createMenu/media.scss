@@ -8,6 +8,7 @@
   .dish {
     &:nth-child(odd) {
       padding-left: 0%;
+      margin-left: 0;
     }
     &:nth-child(even) {
       margin-right: 0%;

@@ -15,6 +15,7 @@ import SelectMenu from '../selectMenu'
 let MyRouter = () => {
 
   const [active, setActive] = useState([false,false,false,false]);
+  const [mobileMenuPosition, setMobileMenuPosition] = useState(true)
 
   useEffect(() => {
     let raw = localStorage.getItem('menu');
@@ -42,8 +43,8 @@ let MyRouter = () => {
       <div className={`dropParent ${active[0] === true ? 'active' : ''}`}>
         <li>Menues</li>
         <ul>
-          <li><Link to='/create_menu' onClick={() => changeTab(0)}>Create</Link></li>
-          <li><Link to='/select_menu' onClick={() => changeTab(0)}>Select</Link></li>
+          <li><Link to='/create_menu' onClick={() => changeTab(0)}>Create menu</Link></li>
+          <li><Link to='/select_menu' onClick={() => changeTab(0)}>Select menu</Link></li>
         </ul>
       </div>
     );
@@ -64,7 +65,8 @@ let MyRouter = () => {
   
   return (
     <Router>
-      <nav>
+      <nav className={`${mobileMenuPosition ? 'hidden' : ''}`}>
+        <div className="openMobileMenu" onClick={()=>{setMobileMenuPosition(!mobileMenuPosition)}}></div>
         <ul className="menu">
           {dropDown()}
           {Items}

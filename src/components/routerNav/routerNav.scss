@@ -85,7 +85,8 @@ nav {
 
       & a {
         width: 100%;
-        padding: 0 50px !important;
+        // padding: 2px 0;
+        font-size: 1em;
       }
       
     }
@@ -98,7 +99,7 @@ nav {
    
   & li a {
     margin: 0;
-    font-size: 1em;
+    font-size: .95em;
   }
 
   li:first-of-type {
@@ -111,3 +112,5 @@ nav {
   }
 
   }
+
+  @import './media.scss'

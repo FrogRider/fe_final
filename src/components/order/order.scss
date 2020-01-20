@@ -58,14 +58,16 @@
   transform: translateX(0%);
   transition: transform 0.5s, border-top-left-radius .67s;
   opacity: 1;
+  overflow: scroll;
 
   & i {
     display: block;
   }
 
   & button {
-    position: absolute;
+    position: fixed;
     bottom: 10px;
+    // left: 50%;
 
     &:not(:disabled){
       cursor: pointer;
@@ -100,7 +102,11 @@
 
 .visible .orderItem {
   padding: 5px;
-  text-align: justify
+  text-align: justify;
+
+  &:first-of-type {
+    // padding-top: 1000px;
+  }
 }
 
 .close {
@@ -124,16 +130,18 @@
   color: #000;
   transition: color .3s;
   max-width: 600px;
+  height: 90%;
+  max-height: 90%;
+  overflow: scroll;
   & .orderItem {
     padding: 5px 10px;
     background-color: rgba(255, 255, 255, .2);
     margin-bottom: 5px;
     position: relative;
-    
-  }
 
-  & .orderItem:hover {
-    color: rgb(179, 68, 48)
+    &:hover {
+      color: rgb(179, 68, 48)
+    }
   }
 
   i {
