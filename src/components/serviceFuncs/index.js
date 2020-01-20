@@ -75,7 +75,7 @@ class Services {
     // console.log(dayCheck);
     //clear order if it wasn't created today
     if (dayCheck !== this.getWeekDay()) {
-      console.log('order cleared');
+      if(state['debugger']) console.log('%c order cleared, time exceeded ', 'color: orange');
       data = [{ day: this.getWeekDay() }];
     }
 

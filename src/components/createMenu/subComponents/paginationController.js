@@ -12,9 +12,6 @@ class PaginationController extends React.Component {
     let curent = this.props.curent;
     let q = this.props.pagesQuantity;
 
-    if(q === 2) return ['', 0, 1];
-    if(q === 1) return ['', 0, ''];
-
     if(q !== 2 && q !== 1) {
       switch (page) {
         case 0:
@@ -25,22 +22,20 @@ class PaginationController extends React.Component {
           return[curent - 1, curent, curent + 1];
       }
     }
+
+    if(q === 2) return ['', 0, 1];
+    if(q === 1) return ['', 0, ''];
   };
 
   buttons = this.fill(this.props.curent);
-  
-  componentDidUpdate(){
-    this.buttons = this.fill(this.props.curent);
-  }
 
   change = i => {
     this.page(i);
     this.buttons = this.fill(this.props.curent);
-    // this.curent = this.props.curent
   };
 
   render() {
-    // console.log(this.props.pagesQuantity)
+    this.buttons = this.fill(this.props.curent)
     return (
       <div className='pagination'>
         <div onClick={()=>{this.change(0)}}> 
@@ -51,7 +46,7 @@ class PaginationController extends React.Component {
             <div 
               className={b === this.props.curent ? 'curentPagination' : 0} 
               key={b} 
-              onClick={()=>{b !== '' ? this.change(b) : console.log('dead end')}}>
+              onClick={()=>{if(b !== '') this.change(b)}}>
                 {b !== '' ? b+1 : '...'}
             </div>
           )

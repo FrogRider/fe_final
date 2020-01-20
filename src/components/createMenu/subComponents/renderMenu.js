@@ -11,7 +11,10 @@ const Render = props => {
             item['price'],
             item['calories'],
             item['picture'],
-            item['type']
+            item['type'],
+            item['vegan'],
+            item['diet'],
+            item['gluten_free']
           ]}
           key={item['name']}
         />

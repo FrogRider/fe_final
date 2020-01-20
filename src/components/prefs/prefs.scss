@@ -1,0 +1,93 @@
+.settings {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  height: 5em;
+
+  & .singlePref {
+    width: 25%;
+    position: relative;
+    text-align: center;
+    border: 1px solid #000;
+
+    & input {
+      position: absolute;
+
+      &:first-of-type {
+        bottom: 10px;
+        left: 1em;
+        display: none;
+
+        &:checked ~ .enableL {
+          box-shadow: 0px 0px 0px 1.5px #ccc, 0px 0px 0px 3px green;
+        }
+      }
+
+      &:first-of-type:checked ~ .disableTitle {
+        display: none;
+      }
+
+      &:first-of-type:not(:checked) ~ .disableTitle,
+      &:last-of-type:not(:checked) ~ .enableTitle {
+        position: absolute;
+        bottom: -15.5%;
+        left: 50%;
+        width: 30%;
+        transform: translateX(-50%);
+        background: #ccc;
+        // padding: 0 5px;
+        border: 1px solid #000
+      }
+
+      &:last-of-type {
+        bottom: 10px;
+        right: 1em;
+        display: none;
+
+        &:checked ~ .disableL {
+          box-shadow: 0px 0px 0px 1.5px #ccc, 0px 0px 0px 3px red;
+        }
+      }
+
+      &:last-of-type:checked ~ .enableTitle {
+        display: none;
+      }
+
+      .disableTitle, .enableTitle {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+    .enableL {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      background: green;
+    }
+
+    // input:first-of-type:checked ~ .enableL {
+    //   // border: 2px solid #ccc;
+    //   box-shadow: 0px 0px 0px 2px #ccc, 0px 0px 0px 3px red;
+    // }
+
+    .disableL {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      background: red;
+    }
+
+    .enabled, .disabled {
+      position: absolute;
+      bottom: 0;
+    }
+
+  }
+}

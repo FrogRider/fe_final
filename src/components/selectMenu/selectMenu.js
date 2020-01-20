@@ -13,6 +13,7 @@ const SelectMenu = () => {
     Service.prepareData().then(res => {
       setAllItems(res);
     })
+    console.log(Service.getWeekDay())
   }, []);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const SelectMenu = () => {
     //generate key consisting first letters of each dish
     let res = '';
     array.forEach(e => {
-      res += e['name'][0]
+      if(e !== undefined) res += e['name'][0]
     })
     // console.log(res)
     return res;
@@ -86,11 +87,11 @@ const SelectMenu = () => {
     <div className="selectMenuContainer">
       
     {menues.map(i => {
-      let price = i[0]['price']+i[1]['price']+i[2]['price']
+      let price = i[0]['price'] + i[1]['price'] + i[2]['price']
   return (
     <div key={getKey(i)}>
       <p>
-        {i[0]['name'] + ', ' + i[1]['name'] + ', ' + i[2]['name'] + '. Total: ' + price}
+        {i[0]['name'] + ' with ' + i[1]['name']  + ' and ' + i[2]['name'] + '. Total: ' + price}
       </p>
       <i onClick={()=>addMenuToOrder(i)}>+</i>
       <hr/>

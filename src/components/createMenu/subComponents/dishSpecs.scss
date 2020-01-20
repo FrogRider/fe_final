@@ -1,0 +1,44 @@
+.specs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  & .spec {
+    // width: calc(60% / 3);
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding: 1px 25px 1px 5px;
+    margin: 0 5px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    font-size: .8em;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+      width: 20px;
+      // background: red;
+      background: url('/img/right.svg') center no-repeat;
+      background-size: 63%;
+    }
+
+    &.disabled {
+      opacity: .5;
+  
+      &::after {
+        background: url('/img/wrong.svg') center no-repeat;
+        background-size: 63%;
+      }
+    }
+  }
+
+  
+
+  
+}
+

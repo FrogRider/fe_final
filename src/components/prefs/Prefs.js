@@ -3,7 +3,10 @@ import importedState from '../state/someState';
 import './prefs.scss';
 import Service from '../serviceFuncs'
 import Kitchens from './Kitchens';
+import Pref from './pref'
 let settings = importedState['prefs']
+
+
 
 
 class Prefs extends React.Component {
@@ -31,25 +34,23 @@ class Prefs extends React.Component {
   render() {
     return (
       <div className="prefs block">
+        <div className="settings">
         {Object.entries(settings).map(e => {
           let label =
             e[0].charAt(0).toUpperCase() + e[0].slice(1).replace('_', ' ');
           if (['vegan', 'diet', 'gluten_free'].indexOf(e[0]) !== -1) {
             return (
-              <p key={e[0]}>
-                <label>
-                  <input
-                    checked={this.state['localSettings'][e[0]]}
-                    onChange={() => this.change(e[0])}
-                    type="checkbox"
-                  />
-                  {label}
-                </label>
-              </p>
+              <Pref 
+                key={label}
+                active={this.state['localSettings'][e[0]]}
+                change={()=>{this.change(e[0])}}
+                name={label}
+              />
             );
           }
           return false;
         })}
+        </div>
         <hr />
         <Kitchens />
       </div>
