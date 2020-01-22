@@ -10,9 +10,10 @@ class Services {
     //next two lines contains appropriate letters from two alphabets as string,
     //splitted to an array
     const ru = [...'йцукенгшщзхъфывапролджэячсмитьбю'];
-    const eng = `q&w&e&r&t&y&u&i&o&p&\[&\]&a&s&d&f&g&h&j&k&l&;&'&z&x&c&v&b&n&m&,&\.`.split('&');
+    const eng = [...`qwertyuiop[]asdfghjkl;'zxcvbnm,.`];
     let split = [...str];
-    //replace letter to appropriate from eng alphabet
+    /*replace letter to appropriate from eng alphabet
+      current letter in split array \/     appropriate letter \/ */
     split.forEach(e => (split[split.indexOf(e)] = eng[ru.indexOf(e)]));
 
     return split.join('');
