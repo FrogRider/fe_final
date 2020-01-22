@@ -10,8 +10,8 @@
 }
 
 .orderCircle {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -67,7 +67,14 @@
   & button {
     position: fixed;
     bottom: 10px;
-    // left: 50%;
+    
+    &:first-of-type {
+      left: 25%;
+    }
+
+    &:last-of-type {
+      right: 25%;
+    }
 
     &:not(:disabled){
       cursor: pointer;
@@ -164,3 +171,5 @@
   top: 10px;
   right: 10px;
 }
+
+@import './media.scss'

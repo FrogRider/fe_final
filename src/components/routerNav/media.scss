@@ -12,21 +12,27 @@
     background-size: 65%;
     border: 1px solid rgb(189, 72, 52);
     border-radius: 5px;
+    animation-duration: 5s;
 
   }
 
+  nav.hidden .openMobileMenu {
+    // animation-name: rotation;
+    animation-duration: 1s;
+  }
+  
   nav {
     transition: transform .5s ease-out;
     &:not(.hidden) {
       transform: translateX(0%);
+
+      & .openMobileMenu {
+        // animation-name: rotationBack;
+    animation-duration: 1s;
+      }
     }
     transform: translateX(-100%);
     position: fixed;
-
-    & ::after {
-
-    }
-    
     width: 50%;
     height: 100vh;
     display: flex;
@@ -112,5 +118,23 @@
         margin-bottom: 10px;
       }
     }
+  }
+}
+
+@keyframes rotation {
+  0% {
+      transform:rotate(0deg);
+  }
+  100% {
+      transform:rotate(360deg);
+  }
+}
+
+@keyframes rotationBack {
+  0% {
+      transform:rotate(0deg);
+  }
+  100% {
+      transform:rotate(-360deg);
   }
 }

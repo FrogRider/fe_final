@@ -1,0 +1,38 @@
+.orderCaution {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 500px;
+  height: 50%;
+  background: rgba(255, 255, 255, .9);
+  z-index: 15;
+  border-radius: 5px;
+  border: 2px solid tomato;
+  opacity: 1;
+  display: block;
+  transition: transform .5s;
+
+  & img {
+    width: 50%;
+  left: 50%;
+  transform: translateX(50%);
+  margin-top: 5%;
+  }
+
+  & p {
+    text-align: center;
+  }
+
+  & button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+  }
+}
+
+.hide {
+  transform: translateX(-500%) translateY(-50%);
+}

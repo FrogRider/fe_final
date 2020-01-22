@@ -4,7 +4,8 @@
 // }
 
 .card {
-  border: 2px solid red;
+  border: 2px solid rgb(136, 136, 136);
+  border-radius: 10px;
   padding-top: 1em;
   position: relative;
 
@@ -13,8 +14,12 @@
 
     &.dishType {
       position: absolute;
+      // display: inline-block;
+      width: 100%;
       top: 0;
-      right: 9px;
+      text-align: right;
+      padding-right: 15px;
+      // right: 9px;
     }
   }
 

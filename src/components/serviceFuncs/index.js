@@ -2,11 +2,22 @@ import axios from 'axios';
 import state from '../state/someState';
 
 class Services {
-  // addToAnOrder (nameToFind, quantity) {
-  //   let order;
-  //   let local = JSON.parse(localStorage.getItem('orded'))
+  firstLetterToUpper = string => {
+    return [...string[0].toUpperCase(), ...string.slice(1)].join('');
+  };
 
-  // }
+  transpileRuEng = str => {
+    //next two lines contains appropriate letters from two alphabets as string,
+    //splitted to an array
+    const ru = [...'йцукенгшщзхъфывапролджэячсмитьбю'];
+    const eng = `q&w&e&r&t&y&u&i&o&p&\[&\]&a&s&d&f&g&h&j&k&l&;&'&z&x&c&v&b&n&m&,&\.`.split('&');
+    let split = [...str];
+    //replace letter to appropriate from eng alphabet
+    split.forEach(e => (split[split.indexOf(e)] = eng[ru.indexOf(e)]));
+
+    return split.join('');
+  };
+
   switchKitchen = k => {
     let data = localStorage.getItem('settings');
     if (data === null) data = state['prefs'];
@@ -25,12 +36,12 @@ class Services {
     else return JSON.parse(data);
   }
 
-  changeSettingByType = (type) => {
+  changeSettingByType = type => {
     let s = this.getLoacalSettings();
-    s[type] = !s[type]
-    
+    s[type] = !s[type];
+
     localStorage.setItem('settings', JSON.stringify(s));
-  }
+  };
 
   getPage = () => {
     const urlObject = new URL(window.location);
@@ -60,11 +71,11 @@ class Services {
       order.splice(idx, 1);
       order.unshift({ day: this.getWeekDay() });
       localStorage.setItem('order', JSON.stringify(order));
-    } else console.log('nothing to delete')
+    } else console.log('nothing to delete');
     return order;
   };
 
-  addToOrder(name, amount, price) {
+  addToOrder = (name, amount, price) => {
     let raw = localStorage.getItem('order');
     let data;
 
@@ -72,10 +83,10 @@ class Services {
     else data = JSON.parse(raw);
 
     let dayCheck = data.find(e => e['day'] !== 'undefined')['day'];
-    // console.log(dayCheck);
     //clear order if it wasn't created today
     if (dayCheck !== this.getWeekDay()) {
-      if(state['debugger']) console.log('%c order cleared, time exceeded ', 'color: orange');
+      if (state['debugger'])
+        console.log('%c order cleared, time exceeded ', 'color: orange');
       data = [{ day: this.getWeekDay() }];
     }
 
@@ -93,12 +104,11 @@ class Services {
     }
     localStorage.setItem('order', JSON.stringify(data));
     // console.log(data);
-  }
+  };
 
   getWeekDay = () => new Date(Date.now()).getDay();
 
   async prepareData() {
-    
     let updatedMeals; //final filtered data goes here
     //get dishes from json
     await axios.get('/structure.json').then(res => {
@@ -109,10 +119,13 @@ class Services {
     updatedMeals.forEach(meal => {
       let days = meal['availableOn'];
       if (days.indexOf(this.getWeekDay()) === -1) {
-        if(meal['disabled'] === false) {
-          if(state['debugger'] === true)
-            console.log(`%c ${meal['name']} disabled by day ${this.getWeekDay()} `, 'color: #bada55');
-          meal['disabled'] = true
+        if (meal['disabled'] === false) {
+          if (state['debugger'] === true)
+            console.log(
+              `%c ${meal['name']} disabled by day ${this.getWeekDay()} `,
+              'color: #bada55'
+            );
+          meal['disabled'] = true;
         }
       }
     });
@@ -120,13 +133,16 @@ class Services {
     //filter by settngs
     updatedMeals.forEach(meal => {
       //comparator function
-      let localSettings = this.getLoacalSettings()
+      let localSettings = this.getLoacalSettings();
       let compare = setting => {
         if (meal[setting] === false && localSettings[setting] === true) {
-          if(meal['disabled'] === false) {
-            if(state['debugger'] === true)
-              console.log(`%c ${meal['name']} disabled by ${setting} `, 'color: #bada55')
-            meal['disabled'] = true
+          if (meal['disabled'] === false) {
+            if (state['debugger'] === true)
+              console.log(
+                `%c ${meal['name']} disabled by ${setting} `,
+                'color: #bada55'
+              );
+            meal['disabled'] = true;
           }
         }
       };
@@ -140,10 +156,13 @@ class Services {
     updatedMeals.forEach(meal => {
       // console.log(kitchens.indexOf(meal['kitchen']) !== -1)
       if (kitchens.indexOf(meal['kitchen']) !== -1) {
-        if(meal['disabled'] === false) {
-          if(state['debugger'] === true)
-            console.log(`%c ${meal['name']} disabled by ${kitchens} `, 'color: #bada55');
-          meal['disabled'] = true
+        if (meal['disabled'] === false) {
+          if (state['debugger'] === true)
+            console.log(
+              `%c ${meal['name']} disabled by ${kitchens} `,
+              'color: #bada55'
+            );
+          meal['disabled'] = true;
         }
       }
     });

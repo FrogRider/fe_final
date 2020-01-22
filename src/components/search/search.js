@@ -26,25 +26,33 @@ class Search extends React.Component {
 
   searchFor = () => {
     let items = this.state['items'];
+    // items.map(i => i['name'].toLowerCase());
+    items.forEach(i => i['name'] = i['name'].toLowerCase())
     let res;
+    let searchFor = this.state['searchFor'].toLocaleLowerCase()
+
 
     if(this.state['searchFor'] !== ''){
-      res = items.filter(i => i['name'].indexOf(this.state['searchFor']) !== -1)
+      res = items.filter(i => i['name'].indexOf(searchFor) !== -1)
+
+      if(res.length === 0)
+        res = items.filter(i => i['name'].indexOf(Service.transpileRuEng(searchFor)) !== -1)
+
+      res.forEach(i => i['name'] = Service.firstLetterToUpper(i['name']))
+      console.log(res)
     }
     
     if(res !== undefined)
       this.setState({'searchedItem': res})
   }
 
-  
-
-
   render() {
-    console.log('items',this.state['searchedItem'])
+    // console.log('items',this.state['searchedItem'])
     return (
-      <div className="search" onClick={()=>{this.searchFor()}}>
+      <div className={`search ${this.props.visible ? '' : 'hideSearch'}`}>
+        <i className='closeSearch' onClick={()=>{this.props.close()}}></i>
         <form onSubmit={this.handleSubmit}>
-        <label onClick={this.handleSubmit} htmlFor="username">
+        <label onClick={()=>{this.searchFor()}} htmlFor="username">
           Search
         </label>
         <br />

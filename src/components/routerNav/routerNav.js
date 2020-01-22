@@ -16,6 +16,7 @@ let MyRouter = () => {
 
   const [active, setActive] = useState([false,false,false,false]);
   const [mobileMenuPosition, setMobileMenuPosition] = useState(true)
+  const [searchVis, setSearchVis] = useState(false)
 
   useEffect(() => {
     let raw = localStorage.getItem('menu');
@@ -66,6 +67,7 @@ let MyRouter = () => {
   return (
     <Router>
       <nav className={`${mobileMenuPosition ? 'hidden' : ''}`}>
+      <i className='searchToggler' onClick={()=>{setSearchVis(true)}} ></i>
         <div className="openMobileMenu" onClick={()=>{setMobileMenuPosition(!mobileMenuPosition)}}></div>
         <ul className="menu">
           {dropDown()}
@@ -73,7 +75,7 @@ let MyRouter = () => {
         </ul>
       </nav>
       <Order />
-      {/* <Search /> */}
+      <Search visible={searchVis} close={()=> {setSearchVis(false)}}/>
       <Switch>
         <Route exact path="/">
           <Main />
