@@ -1,22 +1,20 @@
 import React from 'react'
 
 const Pref = props => {
+
+  const name = props.name.toLowerCase();
   return (
-    <div className='singlePref'>
-      {`Only ${props.name.toLowerCase()}`}
-        {/* <input
-          checked={props.active}
+    <div onClick={()=>{props.change()}} className='singlePref'>
+      {`Allow ${name}`}
+        <input 
+          id={props.name} 
+          type="checkbox" 
+          checked={!props.active} 
           onChange={props.change}
-          type="checkbox"
-        /> */}
-        <input id={`enable${props.name}`} type="radio" checked={props.active} onChange={props.change}/>
-        <input id={`disable${props.name}`} type="radio" checked={!props.active} onChange={props.change}/>
+          className='toggler'
+        />
 
-        <div className='enableTitle' >enabled</div>
-        <div className='disableTitle' >disabled</div>
-
-        <label className='enableL' htmlFor={`enable${props.name}`}></label>
-        <label className='disableL' htmlFor={`disable${props.name}`}></label>
+        <label htmlFor={props.name} className='settingsToggler'/>
     </div>
   );
 };

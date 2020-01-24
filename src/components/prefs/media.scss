@@ -1,0 +1,25 @@
+@media only screen and (max-width: 840px) {
+  .settings {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+
+    .singlePref {
+      width: 80%;
+      margin: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .settings {
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+
+    .singlePref {
+      width: 80%;
+      margin: 10px 0;
+      margin: auto;
+      // margin-right: 50px;
+    }
+  }
+}

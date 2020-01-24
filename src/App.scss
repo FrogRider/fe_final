@@ -20,6 +20,8 @@
 
 html {
   background: #ccc;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .block {
@@ -29,8 +31,8 @@ html {
   padding-top: 3em;
   position: absolute;
   left:0;
-right:0;
-margin: auto;
+  right:0;
+  margin: auto;
   font-family: NunitoRegular;
 
   // height: calc(100% - 3em);
@@ -43,4 +45,16 @@ margin: auto;
 
 #root {
   position: relative;
+}
+
+@media only screen and (max-width: 660px) { 
+  html {
+    background: #ccc;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .block {
+    padding-top: 0;
+  }
 }

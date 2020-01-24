@@ -6,14 +6,10 @@ import Kitchens from './Kitchens';
 import Pref from './pref'
 let settings = importedState['prefs']
 
-
-
-
 class Prefs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      key: 'value',
       kitchens: Service.getLoacalSettings()['kitchens'] || [],
       localSettings: Service.getLoacalSettings()
     };
@@ -36,15 +32,13 @@ class Prefs extends React.Component {
       <div className="prefs block">
         <div className="settings">
         {Object.entries(settings).map(e => {
-          let label =
-            e[0].charAt(0).toUpperCase() + e[0].slice(1).replace('_', ' ');
           if (['vegan', 'diet', 'gluten_free'].indexOf(e[0]) !== -1) {
             return (
               <Pref 
-                key={label}
+                key={e[0]}
                 active={this.state['localSettings'][e[0]]}
                 change={()=>{this.change(e[0])}}
-                name={label}
+                name={e[0].indexOf('_') === -1 ? 'non '+e[0] : 'gluten-containing'}
               />
             );
           }
@@ -52,6 +46,7 @@ class Prefs extends React.Component {
         })}
         </div>
         <hr />
+        <p>Kitchens:</p>
         <Kitchens />
       </div>
     );

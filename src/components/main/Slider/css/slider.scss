@@ -1,6 +1,7 @@
+@import '../../../../globalStyles/colors.scss';
 
 a {
-  color: tomato;
+  color: $red;
   text-decoration: none;
 }
 
@@ -46,7 +47,7 @@ a {
 
   &:hover {
     cursor: pointer;
-    background: rgba(tomato, .5);
+    background: rgba($red, .5);
   }
 }
 
@@ -54,17 +55,36 @@ a {
   width: 300%;
   height: 100%;
   display: flex;
-  transition: 0.6s;
+  transition: .9s;
 
   & .slide {
     width: calc(100% / 3);
     transition: 0.6s;
     border-radius: 10px;
     max-height: 75vh;
+    position: relative;
+
+    & .slideLable {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 50%;
+      transform: translateX(-50%) translateY(-50%);
+
+      font-size: calc(2vw + 2vh + 2vmin); 
+      color: #fff;
+      background-color: rgba(255, 255, 255, .2);
+      border: 1px solid #fff;
+      padding: 20px;
+      text-align: center;
+      z-index: 10;
+
+    }
 
     & img {
       width: 100%;
       height: auto;
+      filter: saturate(30%);
     }
   }
 }
@@ -75,7 +95,7 @@ a {
   }
 
    & ~ .slider_nav .c1 {
-    background: rgba(tomato, .7);
+    background: rgba($red, .7);
   }
 }
 
@@ -86,7 +106,7 @@ a {
   }
 
   & ~ .slider_nav .c2 {
-    background: rgba(tomato, .7);
+    background: rgba($red, .7);
   }
 }
 
@@ -96,7 +116,7 @@ a {
   }
 
   & ~ .slider_nav .c3 {
-    background: rgba(tomato, .7);
+    background: rgba($red, .7);
   }
 }
 

@@ -24,12 +24,13 @@
       height: 100%;
       width: 20px;
       // background: red;
-      background: url('/img/right.svg') center no-repeat;
+      background: url('/img/correct.svg') center no-repeat;
       background-size: 63%;
     }
 
     &.disabled {
       opacity: .5;
+      text-decoration: line-through;
   
       &::after {
         background: url('/img/wrong.svg') center no-repeat;

@@ -5,11 +5,11 @@ const Kitchens = () => {
 
   const [kitchens, setKitchens] = useState(Service.getLoacalSettings()['kitchens'])
   let elems = [
-    ['it', 'Italy'],['fr', 'France'],['ua', 'Ukraine'],['ru', 'Russia'],['chn', 'China'], ['usa', 'America']
+    ['it', 'Italian'],['fr', 'French'],['ua', 'Ukrainian'],['ru', 'Russian'],['chn', 'Chinese'], ['usa', 'American']
   ].map(e => {
     return (
-      <p key={e[1]}>
-        <label>
+      <label htmlFor={e[1]} key={e[1]} className='singlePref'>
+        {e[1]}
           <input
             type="checkbox"
             onChange={() => {
@@ -17,16 +17,17 @@ const Kitchens = () => {
               setKitchens(Service.getLoacalSettings()['kitchens'])
             }}
             checked={kitchens.indexOf(e[0]) === -1}
+            className='toggler'
+            id={e[1]}
           />
-          {e[1]}
-        </label>
-      </p>
+          <label htmlFor={e[1]} className='settingsToggler' />
+      </label>
     );
     
   });
 
   return(
-    <div className="">
+    <div className="settings">
       {elems}
     </div>
   )

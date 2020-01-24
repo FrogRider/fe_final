@@ -19,6 +19,8 @@ class Services {
     return split.join('');
   };
 
+  resetKitchens = () => localStorage.setItem('settings', JSON.stringify([]));;
+
   switchKitchen = k => {
     let data = localStorage.getItem('settings');
     if (data === null) data = state['prefs'];
@@ -31,11 +33,15 @@ class Services {
     localStorage.setItem('settings', JSON.stringify(data));
   };
 
-  getLoacalSettings() {
+  resetLocalSettings = () => {
+    localStorage.setItem('settings', JSON.stringify(state['prefs']));
+  };
+
+  getLoacalSettings = () => {
     let data = localStorage.getItem('settings');
     if (data === null) return state['prefs'];
     else return JSON.parse(data);
-  }
+  };
 
   changeSettingByType = type => {
     let s = this.getLoacalSettings();
@@ -112,7 +118,7 @@ class Services {
   async prepareData() {
     let updatedMeals; //final filtered data goes here
     //get dishes from json
-    await axios.get('/structure.json').then(res => {
+    await axios.get('./structure.json').then(res => {
       updatedMeals = res['data'];
     });
 

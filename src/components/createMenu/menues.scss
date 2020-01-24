@@ -1,10 +1,7 @@
-// @font-face {
-//   font-family: Nunito;
-//   src: url(/fonts/Nunito-Regular.ttf) format('truetype');
-// }
+@import '../../globalStyles/colors.scss';
 
 .card {
-  border: 2px solid rgb(136, 136, 136);
+  // border: 2px solid rgb(136, 136, 136);
   border-radius: 10px;
   padding-top: 1em;
   position: relative;
@@ -15,6 +12,7 @@
     &.dishType {
       position: absolute;
       // display: inline-block;
+      color: #888;
       width: 100%;
       top: 0;
       text-align: right;
@@ -39,10 +37,12 @@
 
 .dish {
   display: flex;
+  max-height: 600px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: $shadowHalfOpacity;
   
   & p {
     text-overflow: ellipsis;
@@ -72,7 +72,7 @@ button {
   padding: 5px 10px;
   background: rgba(255, 99, 71, .3);
   border-radius: 5px;
-  border: 2px solid tomato;
+  border: 2px solid $red;
   transition: .4s;
 
   &:hover {
@@ -119,12 +119,22 @@ button {
     height: 25px;
     background: #fff;
     margin: 0 10px;
+    transition: color .3s;
 
     &:hover {
       cursor: pointer;
     }
   }
   // height: 300px;
+}
+
+.pagination .paginationFirst, .pagination .paginationLast{
+  background: #fff url('/img/double_arrow.svg') no-repeat center;
+  background-size: 60%;
+}
+
+.pagination .paginationLast{
+  transform: rotate(180deg);
 }
 
 .curentPagination {

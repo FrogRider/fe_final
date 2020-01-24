@@ -26,6 +26,7 @@
   cursor: pointer;
   padding: 0;
   border: 0px solid $green;
+  box-shadow: $mainShadow;
   transition: padding 0.2s, border 0.3s ease ;
 
   &:hover {
@@ -45,7 +46,7 @@
   height: calc(100vh - 10px);
 
   position: fixed;
-  z-index: 5;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,6 +141,23 @@
   height: 90%;
   max-height: 90%;
   overflow: scroll;
+
+  & .disabledItem {
+    text-decoration: line-through;
+    position: relative;
+
+    &:after {
+      content: 'unavailable today';
+      position: absolute;
+      padding: 0 10px;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      color: red;
+      border: 1px solid red;
+    }
+  }
+
   & .orderItem {
     padding: 5px 10px;
     background-color: rgba(255, 255, 255, .2);

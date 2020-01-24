@@ -1,3 +1,5 @@
+@import '../../../globalStyles/colors.scss';
+
 .orderCaution {
   position: fixed;
   top: 50%;
@@ -8,7 +10,7 @@
   background: rgba(255, 255, 255, .9);
   z-index: 15;
   border-radius: 5px;
-  border: 2px solid tomato;
+  border: 2px solid $red;
   opacity: 1;
   display: block;
   transition: transform .5s;

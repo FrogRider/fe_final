@@ -38,9 +38,11 @@ class PaginationController extends React.Component {
     this.buttons = this.fill(this.props.curent)
     return (
       <div className='pagination'>
-        <div onClick={()=>{this.change(0)}}> 
-          {'<<'} 
-        </div>
+        <div 
+          onClick={()=>{this.change(0)}} 
+          className='paginationFirst'
+          title='1 page'
+        />
         {this.buttons.map(b => {
           return (
             <div 
@@ -51,9 +53,11 @@ class PaginationController extends React.Component {
             </div>
           )
         })}
-        <div onClick={()=>{this.change(this.props.pagesQuantity - 1)}}> 
-          {'>>'} 
-        </div>
+        <div 
+          onClick={()=>{this.change(this.props.pagesQuantity - 1)}}
+          className='paginationLast'
+          title={this.props.pagesQuantity + ' page'}
+        /> 
       </div>
     );
   }

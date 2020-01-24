@@ -1,5 +1,39 @@
 @import '../../globalStyles/colors.scss';
 
-.info p {
-  color: $color;
+.aboutUs {
+  font-size: 1.2em;
+  text-align: justify;
+  & p:first-of-type{
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 2em;
+    text-decoration: underline;
+  }
+
+  & p:last-of-type{
+    padding: 0 20px;
+  }
 }
+
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  margin: 20px;
+
+  & .card {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-flow: column;
+    padding: 10px;
+    border: 2px solid #888;
+    box-shadow: $shadowHalfOpacity;
+
+    & .number {
+      font-size: 3em;
+    }
+  }
+}
+
+@import './media.scss'

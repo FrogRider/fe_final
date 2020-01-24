@@ -1,10 +1,13 @@
+@import '../../globalStyles/colors.scss';
+
 nav {
   width: 100%;
   height: 3em;
-  background: tomato;
+  background: $red;
   color: #fff;
+  box-shadow: $mainShadow;
   position: fixed;
-  z-index: 5;
+  z-index: 20;
   font-family: NunitoBold;
 
   & .menu {
@@ -14,6 +17,16 @@ nav {
     justify-content: center;
     align-items: center;
     position: relative;
+
+    & a:before {
+      content: '';
+      position: absolute;
+      left: -11px;
+      height: 100%;
+      width: 2px;
+      background: #fff;
+      opacity: .5;
+    }
 
     :not(.active) ::after {
       content: '';
@@ -31,7 +44,7 @@ nav {
       border: 1px solid #fff;
       opacity: 1;
       transition: opacity .7s;
-      background: tomato;
+      background: $red;
     }
 
     & a, .dropParent {
@@ -62,6 +75,10 @@ nav {
 
 .dropParent {
   transition: 0.5s;
+
+  & a:before {
+    display: none;
+  }
   & ul {
 
     position: absolute;
@@ -121,7 +138,7 @@ nav {
     height: 48px;
     background: url('/img/search.svg') no-repeat center;
     background-size: 70%;
-    z-index: 20;
+    z-index: 15;
   }
 
   @import './media.scss'

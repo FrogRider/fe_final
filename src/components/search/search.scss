@@ -4,6 +4,7 @@
   left: 0;
   width: 100vw;
   height: 50vh;
+  overflow: scroll;
   z-index: 20;
   background: #fff;
   transform: translateY(0%);
@@ -23,7 +24,7 @@
 
   &.hideSearch {
   // display: none;
-  transform: translateY(-100%);
+  transform: translateY(-110%);
 }
   
 }

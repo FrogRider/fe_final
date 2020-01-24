@@ -14,6 +14,7 @@ const Order = () => {
 
   const [orderCautionVis, setOrderCautionVis] = useState(false)
   const [orderSuccessVis, setOrderSuccessVis] = useState(false)
+  const [caution, setCaution] = useState({type:'',label:'',visible:false})
 
   useEffect(() => {
     setOrder(JSON.parse(localStorage.getItem('order')));
@@ -24,7 +25,9 @@ const Order = () => {
     let total = 0;
     let localOrder = JSON.parse(localStorage.getItem('order'))
     if(!!order) {
-
+      localOrder.forEach(e => {
+        if(e['p'] !== undefined) total += e['p'] * e['q']
+      })
     }
     return total
   }
@@ -42,19 +45,24 @@ const Order = () => {
   }
 
   const confirmOrder = () => {
-    if(!!order && order.length > 1) {
-      let orderDay = order.find(i => i['day'])['day']
-    if(Service.getWeekDay() === orderDay) {
-      //do something with order
-      console.log(order)
-      setOrderSuccessVis(true);
-      resetOrder()
+    if (!!order && order.length > 1) {
+      let orderDay = order.find(i => i['day'])['day'];
+      if (Service.getWeekDay() === orderDay) {
+        console.log(Service.getWeekDay())
+        //do something with order
+        console.log(order);
+        callCaution('correct', 'Success');
+        resetOrder();
+      } else {
+        callCaution('warn', "Some of the ordered dishes are not available today");
+        //resetOrder();
+      }
     }
-    else {
-      setOrderCautionVis(true);
-      resetOrder();
-    }
-    }
+  };
+
+  const callCaution = (type, label) => {
+    // const [caution, setCaution] = useState({type:'',label:'',visible:false})
+    setCaution({type:type, label:label, visible:true})
   }
 
   return (
@@ -62,16 +70,10 @@ const Order = () => {
     <div>
       {/* {alert( typeof order)} */}
       <OrderCaution 
-        label={'Order wasn\'t made today'} 
-        visible={orderCautionVis} 
-        changer={()=>{setOrderCautionVis(false)}} 
-        type='warn'
-      />
-      <OrderCaution 
-        label={'Success'} 
-        visible={orderSuccessVis} 
-        changer={()=>{setOrderSuccessVis(false)}} 
-        type='correct'
+        label={caution['label']} 
+        visible={caution['visible']} 
+        changer={()=>{setCaution({type:'',label:'',visible:false})}} 
+        type={caution['type']}
       />
       <div tabIndex="0" className={`popup ${visible === true ? 'unvis' : ''}`}>
         <CloseBtn

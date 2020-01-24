@@ -20,10 +20,13 @@ const Slider = () => {
     <input key={i} onChange={() => setChecked(i)} type="radio" name="r" id={`r${i}`} checked={i === checked} />
   ));
 
+  const slidesLables = ['quick delivery', 'working 24/7', 'city-wide'];
+
   const slides = (
     <div className="slides">
       {[1, 2, 3].map(i => (
         <div className={`slide s${i}`} key={i}>
+          <p className='slideLable'>{slidesLables[i-1]}</p>
           <img src={`/img/slider/slider-${i}.jpg`} alt="slide" />
         </div>
       ))}
