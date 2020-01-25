@@ -19,7 +19,7 @@ class Services {
     return split.join('');
   };
 
-  resetKitchens = () => localStorage.setItem('settings', JSON.stringify([]));;
+  resetKitchens = () => localStorage.setItem('settings', JSON.stringify([]));
 
   switchKitchen = k => {
     let data = localStorage.getItem('settings');
@@ -114,6 +114,21 @@ class Services {
   };
 
   getWeekDay = () => new Date(Date.now()).getDay();
+
+  sortByType = (data, type = 'other') => {
+    switch (type) {
+      case 'priceLowHigh':
+        return data.sort((a, b) => a['price'] - b['price']);
+      case 'priceHighLow':
+        return data.sort((a, b) => b['price'] - a['price']);
+      case 'nameAB':
+        return data.sort((a, b) => a['name'].localeCompare(b['name']));
+      case 'nameBA':
+        return data.sort((a, b) => b['name'].localeCompare(a['name']));
+      default:
+        return data;
+    }
+  };
 
   async prepareData() {
     let updatedMeals; //final filtered data goes here

@@ -1,0 +1,17 @@
+.sort {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  top: calc(3em + 10px);
+  right: 50%;
+  transform: translateX(50%);
+  background: #fff;
+  border-radius: 5px;
+  
+  & select {
+    border: none;
+    outline: none;
+    
+  }
+}
