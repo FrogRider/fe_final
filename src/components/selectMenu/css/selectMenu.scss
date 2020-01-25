@@ -1,6 +1,52 @@
-.selectMenuContainer {
-  width: 100%;
-  min-height: calc(100vh - 3em);
+@import '../../../globalStyles/colors.scss';
+
+.select {
   padding-top: 3em;
-  background: #ccc;
+
+  & .dish {
+    justify-content: space-evenly;
+  }
+
+  & .card {
+    padding-top: 0;
+
+    & .add {
+      position: absolute;
+      bottom: 10px;
+    }
+
+    & p {
+      background: rgba($darkGray, .8);
+      border-radius: 5px;
+      box-shadow: $shadowHalfOpacity;
+    }
+  }
+  
+  & .totals {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+  
+    & p{
+      width: 80%;
+      font-size: .9em;
+      border: 2px solid #fff;
+      border-radius: 17px;
+      background: none;
+      box-shadow: none;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+  }
 }
+
+.random {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+}
+
+@import './media.scss'

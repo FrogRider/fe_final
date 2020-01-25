@@ -120,7 +120,6 @@ class Services {
     //get dishes from json
     await axios.get('/structure.json').then(res => {
       updatedMeals = res['data'];
-      console.log(res)
     });
 
     //filter dishes by days

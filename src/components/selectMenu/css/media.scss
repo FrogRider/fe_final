@@ -1,0 +1,13 @@
+@media only screen and (max-width: 660px) { 
+  .card {
+    padding-bottom: 40px;
+    & p {
+      margin: 5px 0;
+    }
+
+    & .totals { 
+      margin-top: 5px;
+    }
+  }
+
+}

@@ -1,17 +1,12 @@
-// import React from 'react';
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import './css/menues.scss';
-// import CreateMenu from './subComponents/CreateMenu';
-import Preloader from '../preloader/Preloader';
+import CreateMenu from './subComponents/CreateMenu';
 
-const CreateMenu = lazy(() => import('./subComponents/CreateMenu'));
-const Menues = props => {
+const Menues = () => {
   return (
-    <Suspense fallback={<Preloader />}>
       <div className="menues block">
         <CreateMenu />
       </div>
-    </Suspense>
   );
 };
 

@@ -3,7 +3,7 @@ import './css/info.scss';
 
 
 
-const Info = (props) => {
+const Info = () => {
   return (
     <div className="info block">
       <div className="aboutUs">

@@ -45,7 +45,6 @@ const Order = () => {
     if (!!order && order.length > 1) {
       let orderDay = order.find(i => i['day'])['day'];
       if (Service.getWeekDay() === orderDay) {
-        console.log(Service.getWeekDay())
         //do something with order
         console.log(order);
         callCaution('correct', 'Success');

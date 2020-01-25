@@ -2,7 +2,7 @@ import React from 'react';
 import Dish from './dishItem';
 
 const Render = props => {
-  if(props.items.length !== 0) {
+  if (props.items.length !== 0) {
     return props.items.map(item => {
       if (item['disabled'] === false) {
         return (
@@ -21,15 +21,14 @@ const Render = props => {
           />
         );
       }
-      return false
+      return false;
     });
-  } else 
-    return <div className='emptyMenu'>
-              Nothing to show right now :c <br/>
-              Here's picture of kitten instead <br/>
-              <img src="./img/kitten.svg" alt="kitten"/>
-
-           </div>
+  } else
+    return (
+      <div className="emptyMenu">
+        <div className="loader">Loading...</div>
+      </div>
+    );
 }
 
 export default Render;

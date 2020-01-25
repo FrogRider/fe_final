@@ -1,0 +1,30 @@
+.emptyMenu {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 100%;
+  font-size: 2em;
+  text-align: center;
+
+  & .loader {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    animation: anim 2s linear infinite;
+  }
+}
+
+@keyframes anim {
+  0%   {
+      opacity: 1;
+  }
+  50% {
+      opacity: .2;
+  }
+  100%   {
+    opacity: 1;
+  }
+}

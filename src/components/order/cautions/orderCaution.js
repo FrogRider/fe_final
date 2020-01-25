@@ -3,12 +3,8 @@ import './css/orderCaution.scss';
 
 const OrderCaution = props => {
   const type = () => {
-    switch (props.type) {
-      case 'correct':
-        return 'correct.svg'
-      case 'warn': 
-        return 'warn.svg'
-    }
+    if(props.type === 'correct') return 'correct.svg';
+    if(props.type === 'warn') return 'warn.svg';
   }
   
   return (

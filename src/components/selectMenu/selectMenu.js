@@ -84,23 +84,29 @@ const SelectMenu = () => {
   }
 
   return (
-    <div className="selectMenuContainer">
-      
-    {menues.map(i => {
-      let price = i[0]['price'] + i[1]['price'] + i[2]['price']
-  return (
-    <div key={getKey(i)}>
-      <p>
-        {i[0]['name'] + ' with ' + i[1]['name']  + ' and ' + i[2]['name'] + '. Total: ' + price}
-      </p>
-      <i onClick={()=>addMenuToOrder(i)}>+</i>
-      <hr/>
+    <div>
+      <div className="dishesContainer select">
+        {menues.map(i => {
+          let price = i[0]['price'] + i[1]['price'] + i[2]['price'];
+          let calories = i[0]['calories'] + i[1]['calories'] + i[2]['price'];
+          return (
+            <div key={getKey(i)} className="dish card">
+              <p>{i[0]['name']}</p>
+              <p>{i[1]['name']}</p>
+              <p>{i[2]['name']}</p>
+              <div className="totals">
+                <p>Calories: {calories}</p>
+                <p>Price: {price}</p>
+              </div>
+              <button onClick={() => addMenuToOrder(i)} className='add'>add</button>
+              <hr />
+            </div>
+          );
+        })}
+      </div>
+      <button onClick={generateMenus} className='random'>Random</button>
     </div>
-    )
-    })}
-    <button onClick={generateMenus}>Random</button>
-   </div>
-  )
+  );
 }
 
 export default SelectMenu;
