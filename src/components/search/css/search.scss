@@ -23,6 +23,12 @@
     height: 48px;
     background: url('/img/cancel.png') no-repeat center;
     background-size: 50%;
+    transition: background-size .3s;
+
+    &:hover {
+      cursor: pointer;
+      background-size: 60%;
+    }
 
   }
 

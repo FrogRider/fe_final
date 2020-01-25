@@ -136,9 +136,16 @@ nav {
     bottom: 0;
     width: 48px;
     height: 48px;
-    background: url('/img/search.svg') no-repeat center;
+    background: url('/img/search_w.svg') no-repeat center;
     background-size: 50%;
     z-index: 15;
+    transition: background-size .3s;
+    filter: drop-shadow( 0px 1px 1px rgba(0, 0, 0, .7));
+
+    &:hover {
+      cursor: pointer;
+      background-size: 60%;
+    }
   }
 
   @import './media.scss'

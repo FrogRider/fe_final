@@ -20,7 +20,7 @@ const Slider = () => {
     <input key={i} onChange={() => setChecked(i)} type="radio" name="r" id={`r${i}`} checked={i === checked} />
   ));
 
-  const slidesLables = ['quick delivery', 'working 24/7', 'city-wide'];
+  const slidesLables = ['quick delivery', 'available 24/7', 'city-wide'];
 
   const slides = (
     <div className="slides">
