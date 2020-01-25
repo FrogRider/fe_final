@@ -1,4 +1,18 @@
-@import '../../globalStyles/colors.scss';
+@import '../../../globalStyles/colors.scss';
+
+.emptyMenu {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  font-size: 2em;
+  text-align: center;
+
+  & img {
+    width: 40%;
+    opacity: .6;
+  }
+}
 
 .card {
   // border: 2px solid rgb(136, 136, 136);
@@ -89,6 +103,7 @@ button {
   grid-column-gap: 10px;
   grid-row-gap: 15px;
   margin-bottom: 5%;
+  margin-bottom: 70px;
 }
 
 .menuButton {
@@ -109,17 +124,19 @@ button {
   bottom: 0;
   text-align: center;
   width: 100%;
+  margin-bottom: 20px;
 
   & div{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
     background: #fff;
-    margin: 0 10px;
+    margin: 0 6px;
     transition: color .3s;
+    box-shadow: $shadowHalfOpacity;
 
     &:hover {
       cursor: pointer;

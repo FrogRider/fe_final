@@ -1,0 +1,28 @@
+@import '../../../globalStyles/colors.scss';
+@import './checkbox.scss';
+
+.settings {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 30px;
+  grid-row-gap: 10px;
+  margin: 10px 0;
+
+  &:first-of-type {
+    margin-top: 25px;
+  }
+  
+  & .singlePref {
+    position: relative;
+    text-align: left;
+    width: calc(100% - 30px);
+    background: rgba($darkGray, .7);
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: $shadowHalfOpacity;
+  }
+}
+
+@import './media.scss'

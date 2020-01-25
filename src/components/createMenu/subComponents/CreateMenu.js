@@ -3,7 +3,7 @@ import state from '../../state/someState';
 import Service from '../../serviceFuncs';
 import Pagination from './paginationController';
 import Render from './renderMenu'
-import '../menues.scss';
+// import '../css/menues.scss';
 
 class CreateMenu extends React.Component {
   constructor(props) {
@@ -34,6 +34,7 @@ class CreateMenu extends React.Component {
   componentDidMount() {
     this.setState({ pageNumber: Service.getPage() });
     this.update();
+    
   }
 
   changePage(i){

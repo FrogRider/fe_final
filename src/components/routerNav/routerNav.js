@@ -1,6 +1,5 @@
 import React, { /*useReducer,*/ useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import './routerNav.scss';
 // import appReducer from '../state';
 import Contacts from '../contacts';
 import Prefs from '../prefs';
@@ -9,7 +8,8 @@ import Main from '../main';
 import CreateMenu from '../createMenu';
 import Order from '../order/Order';
 import Search from '../search';
-import SelectMenu from '../selectMenu'
+import SelectMenu from '../selectMenu';
+import './css/routerNav.scss';
 
 
 let MyRouter = () => {

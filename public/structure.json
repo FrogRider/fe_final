@@ -9,7 +9,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [1,3,5],
+    "availableOn": [1,2,5],
     "kitchen": "chn",
     "disabled": false
   },
@@ -23,7 +23,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [2,0],
+    "availableOn": [3,0],
     "kitchen": "fr",
     "disabled": false
   },
@@ -79,7 +79,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [4,0],
+    "availableOn": [4,2,0],
     "kitchen": "",
     "disabled": false
   },
@@ -93,7 +93,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [2,4],
+    "availableOn": [7,4],
     "kitchen": "ua",
     "disabled": false
   },
@@ -135,7 +135,7 @@
     "gluten_free": false,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [3,6],
+    "availableOn": [2,6],
     "kitchen": "it",
     "disabled": false
   },
@@ -149,7 +149,7 @@
     "gluten_free": false,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [2,0],
+    "availableOn": [3,0],
     "kitchen": "",
     "disabled": false
   },
@@ -163,7 +163,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [4],
+    "availableOn": [2,4],
     "kitchen": "",
     "disabled": false
   },
@@ -247,7 +247,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [1,4,6],
+    "availableOn": [2,4,6],
     "kitchen": "usa",
     "disabled": false
   },
@@ -261,7 +261,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [2],
+    "availableOn": [1],
     "kitchen": "chn",
     "disabled": false
   },

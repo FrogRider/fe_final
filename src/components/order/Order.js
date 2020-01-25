@@ -4,16 +4,13 @@ import EmptyOrder from './emptyOrder';
 import CloseBtn from './closeBtn';
 import OrderInner from './orderInner';
 import OrderCaution from './cautions/orderCaution';
-import './order.scss';
-import './cautions/orderCaution.scss';
+import './css/order.scss';
 
 const Order = () => {
   const [visible, setVisible] = useState(true); //state of order window
   const [order, setOrder] = useState(JSON.parse(localStorage.getItem('order')));
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const [orderCautionVis, setOrderCautionVis] = useState(false)
-  const [orderSuccessVis, setOrderSuccessVis] = useState(false)
   const [caution, setCaution] = useState({type:'',label:'',visible:false})
 
   useEffect(() => {

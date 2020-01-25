@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './selectMenu.scss';
-import state from '../state/someState'
-import Service from '../serviceFuncs'
+import state from '../state/someState';
+import Service from '../serviceFuncs';
+import './css/selectMenu.scss';
 
 const SelectMenu = () => {
 

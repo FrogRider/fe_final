@@ -3,6 +3,7 @@
 @media only screen and (max-width: 660px) {
   .dishesContainer {
     grid-template-columns: repeat(1, 1fr);
+    column-gap: 20px;
   }
 
   .dish {

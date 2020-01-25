@@ -1,5 +1,5 @@
 import React from 'react';
-import '../menues.scss'
+import '../css/menues.scss'
 
 class PaginationController extends React.Component {
   // constructor(props) {

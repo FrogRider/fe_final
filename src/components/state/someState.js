@@ -7,7 +7,7 @@ let initialState = {
     'kitchens': [] //allowed kitchens. all if empty
   },
   //console log data preparation process and others
-  'debugger': true
+  'debugger': false
 }
 
 export default initialState;

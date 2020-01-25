@@ -1,5 +1,5 @@
 import React from 'react';
-import './dishSpecs.scss'
+import './css/dishSpecs.scss'
 
 const Spec = props => {
 

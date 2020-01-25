@@ -1,4 +1,4 @@
-@import '../../globalStyles/colors.scss';
+@import '../../../globalStyles/colors.scss';
 
 nav {
   width: 100%;
@@ -137,7 +137,7 @@ nav {
     width: 48px;
     height: 48px;
     background: url('/img/search.svg') no-repeat center;
-    background-size: 70%;
+    background-size: 50%;
     z-index: 15;
   }
 

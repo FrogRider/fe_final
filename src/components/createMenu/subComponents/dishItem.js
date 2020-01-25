@@ -16,7 +16,7 @@ let Dish = props => {
     <div className="dish card">
       <p className='dishType'>{type.toUpperCase()}</p>
       <div className="imgPlaceHolder">
-        <img src={'./img/' + pic} alt={name + ' pic'} title={name}/>
+        <img src={'/img/' + pic} alt={name + ' pic'} title={name}/>
       </div>
       <Spec specs={[vegan, diet, gluten_free]} />
       <p>{name}</p>

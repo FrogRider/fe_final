@@ -1,5 +1,5 @@
 import React from 'react';
-import './orderCaution.scss';
+import './css/orderCaution.scss'; 
 
 const OrderCaution = props => {
   const type = () => {

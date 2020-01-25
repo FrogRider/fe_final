@@ -1,6 +1,6 @@
 import React from 'react';
 import importedState from '../state/someState';
-import './prefs.scss';
+import './css/prefs.scss';
 import Service from '../serviceFuncs'
 import Kitchens from './Kitchens';
 import Pref from './pref'

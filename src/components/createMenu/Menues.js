@@ -1,6 +1,6 @@
 // import React from 'react';
 import React, { Suspense, lazy } from 'react';
-import './menues.scss';
+import './css/menues.scss';
 // import CreateMenu from './subComponents/CreateMenu';
 import Preloader from '../preloader/Preloader';
 

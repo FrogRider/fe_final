@@ -118,14 +118,15 @@ class Services {
   async prepareData() {
     let updatedMeals; //final filtered data goes here
     //get dishes from json
-    await axios.get('./structure.json').then(res => {
+    await axios.get('/structure.json').then(res => {
       updatedMeals = res['data'];
+      console.log(res)
     });
 
     //filter dishes by days
     updatedMeals.forEach(meal => {
       let days = meal['availableOn'];
-      if (days.indexOf(this.getWeekDay()) === -1) {
+      if (days.indexOf(/*this.getWeekDay()*/ 2) === -1) {
         if (meal['disabled'] === false) {
           if (state['debugger'] === true)
             console.log(
