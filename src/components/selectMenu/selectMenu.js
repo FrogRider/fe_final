@@ -22,7 +22,7 @@ const SelectMenu = () => {
   }, [allItems]);
 
   const addMenuToOrder = array => {
-    array.forEach(e => Service.addToOrder(e['name'], 1, e['price']))
+    array.forEach(e => Service.addToOrder(e['name'], 1, e['price'], e['availableOn']))
   }
 
   const getKey = array => {

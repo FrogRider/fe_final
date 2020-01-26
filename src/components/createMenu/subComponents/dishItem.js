@@ -4,12 +4,12 @@ import Service from '../../serviceFuncs';
 import Spec from './dishSpecs'
 
 let Dish = props => {
-  let [name, price, calories, pic, type, vegan, diet, gluten_free] = [
+  let [name, price, calories, pic, type, vegan, diet, gluten_free, availableOn] = [
     ...props.settings
   ];
 
   const add = () => {
-    Service.addToOrder(name, 1, price);
+    Service.addToOrder(name, 1, price, availableOn);
   };
 
   return (

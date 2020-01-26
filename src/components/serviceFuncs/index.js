@@ -82,7 +82,7 @@ class Services {
     return order;
   };
 
-  addToOrder = (name, amount, price) => {
+  addToOrder = (name, amount, price, availableOn = []) => {
     let raw = localStorage.getItem('order');
     let data;
 
@@ -100,7 +100,7 @@ class Services {
     let find = data.find(e => e['name'] === name);
     switch (typeof find) {
       case 'undefined':
-        data.push({ name: name, q: amount, p: price });
+        data.push({ name: name, q: amount, p: price, a: availableOn });
         break;
       case 'object':
         let idx = data.indexOf(find);
@@ -146,7 +146,8 @@ class Services {
     //filter dishes by days
     updatedMeals.forEach(meal => {
       let days = meal['availableOn'];
-      if (days.indexOf(/*this.getWeekDay()*/ 2) === -1) {
+      //TODO: fake day
+      if (days.indexOf(/*fake day here*/this.getWeekDay()) === -1) {
         if (meal['disabled'] === false) {
           if (state['debugger'] === true)
             console.log(

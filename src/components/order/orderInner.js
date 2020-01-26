@@ -2,10 +2,10 @@ import React from 'react';
 import Service from '../serviceFuncs'
 
 const OrderInner = props => {
-  //if day === 0, undefined returns, so || added to fix that
-  let orderDay = props.order.find(i => i['day']) || {day:0};
   const orderContent = props.order.map(i => {
-    let disabled = Service.getWeekDay() !== orderDay.day;
+    let disabled;
+    if(i['a']) disabled = i['a'].indexOf(Service.getWeekDay()) === -1
+     
     if (i['name'] !== undefined) {
       return (
         <p key={i['name']} className={`${disabled ? 'disabledItem' : ''} orderItem`}>

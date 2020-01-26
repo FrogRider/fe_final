@@ -1,0 +1,15 @@
+.contacts .col {
+  & .mapPlaceholder {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    // background: red;
+    background: url('/img/map.svg') no-repeat center;
+    background-size: 60%;
+  }
+
+  & iframe {
+    width: 100%;
+  }
+}

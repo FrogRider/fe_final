@@ -16,6 +16,7 @@ const Order = () => {
   useEffect(() => {
     setOrder(JSON.parse(localStorage.getItem('order')));
     setTotalPrice(getTotalPrice())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
   const getTotalPrice = () => {
@@ -43,32 +44,38 @@ const Order = () => {
 
   const confirmOrder = () => {
     if (!!order && order.length > 1) {
+      //if day === 0, undefined returns, so || added to fix that
       let orderDay = order.find(i => i['day']) || {day:0};
-      if (Service.getWeekDay() === orderDay.day) {
+      // let orderDay = order.find(i => [1,2,3,4,5,6,0].indexOf(i.day) !== -1);
+      let oldItems = false;
+      order.forEach(i => {
+        if(i['name']) {
+          if(i['a'].indexOf(Service.getWeekDay()) === -1)
+            oldItems = true
+        }
+      })
+      if (Service.getWeekDay() === orderDay.day && !oldItems) {
         //do something with order
         console.log(order);
         callCaution('correct', 'Success');
         resetOrder();
       } else {
         callCaution('warn', "Some of the ordered dishes are not available today");
-        //resetOrder();
       }
     }
   };
 
-  const callCaution = (type, label) => {
-    // const [caution, setCaution] = useState({type:'',label:'',visible:false})
-    setCaution({type:type, label:label, visible:true})
+  const callCaution = (type, label, vis = true) => {
+    setCaution({type:type, label:label, visible:vis})
   }
 
   return (
     
     <div>
-      {/* {alert( typeof order)} */}
       <OrderCaution 
         label={caution['label']} 
         visible={caution['visible']} 
-        changer={()=>{setCaution({type:'',label:'',visible:false})}} 
+        changer={()=>{callCaution('','',false)}} 
         type={caution['type']}
       />
       <div tabIndex="0" className={`popup ${visible === true ? 'unvis' : ''}`}>

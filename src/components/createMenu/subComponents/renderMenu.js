@@ -15,7 +15,8 @@ const Render = props => {
               item['type'],
               item['vegan'],
               item['diet'],
-              item['gluten_free']
+              item['gluten_free'],
+              item['availableOn']
             ]}
             key={item['name']}
           />

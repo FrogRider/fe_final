@@ -1,0 +1,49 @@
+.col3 {
+  & .box {
+    position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 62%;
+      // background: red;
+  }
+
+  & .text {
+    padding: .2em .5em;
+    text-align: justify;
+  }
+
+  & button {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+  }
+
+  & form {
+    // height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+    input {
+      width: 80%;
+      margin: auto;
+      margin-top: 20px;
+      padding: 5px 10px;
+      text-overflow: ellipsis;
+      overflow: hidden; 
+      white-space: nowrap;
+      border: none;
+      border-bottom: 2px solid tomato;
+      background: none;
+      outline: none;
+      font-size: calc(.35vw + .35vh + 0.35vmin); 
+
+
+      &:first-of-type {
+        // margin-top: 20%;
+      }
+    }
+  }
+}
