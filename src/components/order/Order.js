@@ -43,8 +43,8 @@ const Order = () => {
 
   const confirmOrder = () => {
     if (!!order && order.length > 1) {
-      let orderDay = order.find(i => i['day'])['day'];
-      if (Service.getWeekDay() === orderDay) {
+      let orderDay = order.find(i => i['day']) || {day:0};
+      if (Service.getWeekDay() === orderDay.day) {
         //do something with order
         console.log(order);
         callCaution('correct', 'Success');

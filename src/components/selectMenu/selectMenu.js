@@ -99,7 +99,6 @@ const SelectMenu = () => {
                 <p>Price: {price}</p>
               </div>
               <button onClick={() => addMenuToOrder(i)} className='add'>add</button>
-              <hr />
             </div>
           );
         })}

@@ -5,6 +5,7 @@ import Slider from './Slider'
 const Main = () => {
   return (
       <div className="main block">
+        <h1>Food Delivery</h1>
         <Slider />
       </div>
       

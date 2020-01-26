@@ -26,7 +26,7 @@ class CreateMenu extends React.Component {
       let perPage = state['prefs']['pagination'];
       this.setState({
         pagesSum: Math.ceil(res.length / perPage),
-        meals: true ? res : 0,
+        meals: res,
         curentPageContent: res.splice(
           perPage * this.state['pageNumber'],
           perPage
@@ -46,8 +46,7 @@ class CreateMenu extends React.Component {
   }
 
   handleSort(event) {
-    // this.sortContent(event.target.value);
-    console.log(event.target.value)
+    // getting value from select (sort) field
     this.setState({sortType:event.target.value})
     this.update()
   }

@@ -115,7 +115,7 @@ class Services {
 
   getWeekDay = () => new Date(Date.now()).getDay();
 
-  sortByType = (data, type = 'other') => {
+  sortByType = (data, type = 'default') => {
     switch (type) {
       case 'priceLowHigh':
         return data.sort((a, b) => a['price'] - b['price']);
@@ -125,8 +125,14 @@ class Services {
         return data.sort((a, b) => a['name'].localeCompare(b['name']));
       case 'nameBA':
         return data.sort((a, b) => b['name'].localeCompare(a['name']));
-      default:
+      case 'default':
         return data;
+      default:
+        if(state['debugger']) console.log(
+          `%c ${type} doesn't supported for sorting! `,
+          'color: orange'
+        );
+        
     }
   };
 
