@@ -1,0 +1,76 @@
+@media (prefers-color-scheme: dark){
+  *{
+    color: #ccc
+  }
+
+  html {
+    background: #263859;
+  }
+
+  .card {
+    background: #17223b;
+  }
+
+  .block {
+    background: #263859;
+    & .dishesContainer .card {
+      & img {
+        background: #17223b;
+      }
+
+      & .specs {
+        opacity: .58;
+        & .spec:after {
+          background: url('/img/darkTheme/right.svg') no-repeat center;
+          background-size: 63%;
+        }
+
+        & .spec.disabled:after {
+          background: url('/img/darkTheme/close (1).svg') no-repeat center;
+          background-size: 63%;
+        }
+      }
+    }
+  }
+
+  div.popup {
+    background: #17223b;
+
+    & .close {
+      background: url(/img/darkTheme/close.svg) center no-repeat;
+      background-size: 60%;
+      opacity: .7;
+    }
+
+    & .orderItem {
+      background: #6b778d;
+    }
+  }
+
+  div.pagination  {
+
+    & div {
+      background: #17223b;
+    }
+
+    & .paginationFirst, & .paginationLast{
+      background: #6b778d url('/img/double_arrow.svg') no-repeat center;
+      background-size: 60%;
+    }
+    
+    .pagination .paginationLast{
+      transform: rotate(180deg);
+    }
+    
+  }
+
+  .prefs .settings {
+    & .singlePref {
+      background: #6b778d;
+    }
+  }
+  
+  .contacts .col a.card {
+    background: #17223b ;
+  }
+}
