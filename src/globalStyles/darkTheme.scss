@@ -14,8 +14,14 @@
   .block {
     background: #263859;
     & .dishesContainer .card {
-      & img {
-        background: #17223b;
+      & .imgPlaceholder  {
+
+        background: url('/img/darkTheme/dish.png') no-repeat center;
+        background-size: 50%;
+
+        & img {
+          background: #17223b;
+        }
       }
 
       & .specs {
@@ -31,6 +37,11 @@
         }
       }
     }
+  }
+
+  div.orderCaution {
+    background: #263859;
+    border: none;
   }
 
   div.popup {
