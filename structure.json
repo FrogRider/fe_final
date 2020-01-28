@@ -1,5 +1,91 @@
 [ 
   {
+    "name": "Caesar",
+    "type":"salad",
+    "price": 180,
+    "calories": 1185,
+    "vegan": false,
+    "diet": false,
+    "gluten_free": true,
+    "weight": 300,
+    "picture": "cesar.png",
+    "availableOn": [1,2,3,4,5,6,0],
+    "kitchen": "usa",
+    "disabled": false
+  },
+  {
+    "name": "Oceano",
+    "type":"salad",
+    "price": 180,
+    "calories": 766,
+    "vegan": false,
+    "diet": true,
+    "gluten_free": true,
+    "weight": 300,
+    "picture": "oceano.png",
+    "availableOn": [1,2,3,4,5,6,0],
+    "kitchen": "fr",
+    "disabled": false
+  },
+  {
+    "name": "Marino",
+    "type":"salad",
+    "price": 180,
+    "calories": 991,
+    "vegan": false,
+    "diet": false,
+    "gluten_free": true,
+    "weight": 300,
+    "picture": "marino.png",
+    "availableOn": [1,2,3,4,5,6,0],
+    "kitchen": "it",
+    "disabled": false
+  },
+  {
+    "name": "Cesar Delux",
+    "type":"salad",
+    "price": 220,
+    "calories": 1542,
+    "vegan": false,
+    "diet": false,
+    "gluten_free": false,
+    "weight": 300,
+    "picture": "cesar_delux.png",
+    "availableOn": [1,2,3,4,5,6,0],
+    "kitchen": "usa",
+    "disabled": false
+  },
+  {
+    "name": "Tuna",
+    "type":"salad",
+    "price": 220,
+    "calories": 947,
+    "vegan": false,
+    "diet": false,
+    "gluten_free": false,
+    "weight": 300,
+    "picture": "tuna.png",
+    "availableOn": [1,2,3,4,5,6,0],
+    "kitchen": "",
+    "disabled": false
+  },
+  {
+    "name": "Simple",
+    "type":"salad",
+    "price": 220,
+    "calories": 566,
+    "vegan": true,
+    "diet": true,
+    "gluten_free": true,
+    "weight": 300,
+    "picture": "simple.png",
+    "availableOn": [1,2,3,4,5,6,0],
+    "kitchen": "chn",
+    "disabled": false
+  },
+
+
+  {
     "name": "Boiled white rice",
     "type":"garnish",
     "price": 30,
@@ -9,7 +95,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [1,3,5],
+    "availableOn": [1,2,5],
     "kitchen": "chn",
     "disabled": false
   },
@@ -23,7 +109,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [2,0],
+    "availableOn": [3,0],
     "kitchen": "fr",
     "disabled": false
   },
@@ -79,7 +165,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [4,0],
+    "availableOn": [4,2,0],
     "kitchen": "",
     "disabled": false
   },
@@ -93,7 +179,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [2,4],
+    "availableOn": [7,4],
     "kitchen": "ua",
     "disabled": false
   },
@@ -135,7 +221,7 @@
     "gluten_free": false,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [3,6],
+    "availableOn": [2,6],
     "kitchen": "it",
     "disabled": false
   },
@@ -149,7 +235,7 @@
     "gluten_free": false,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [2,0],
+    "availableOn": [3,0],
     "kitchen": "",
     "disabled": false
   },
@@ -163,7 +249,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [4],
+    "availableOn": [2,4],
     "kitchen": "",
     "disabled": false
   },
@@ -247,7 +333,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [1,4,6],
+    "availableOn": [2,4,6],
     "kitchen": "usa",
     "disabled": false
   },
@@ -261,7 +347,7 @@
     "gluten_free": true,
     "weight": 150,
     "picture": "dish.png",
-    "availableOn": [2],
+    "availableOn": [1],
     "kitchen": "chn",
     "disabled": false
   },
@@ -381,7 +467,7 @@
     "disabled": false
   },
   {
-    "name": "Сhili con carne",
+    "name": "Chili con carne",
     "type": "main",
     "price": 120,
     "calories": 129,
@@ -521,7 +607,7 @@
     "disabled": false
   },
   {
-    "name": "Сarrot cutlet",
+    "name": "Carrot cutlet",
     "type": "main",
     "price": 100,
     "calories": 131,
