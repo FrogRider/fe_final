@@ -36,7 +36,7 @@ class Search extends React.Component {
     if (this.state['searchFor'] !== '') {
       res = items.filter(i => i['name'].indexOf(searchFor) !== -1);
 
-      console.log(Service.transpileRuEng(searchFor));
+      // console.log(Service.transpileRuEng(searchFor));
 
       if (res.length === 0 && Service.transpileRuEng(searchFor) !== '')
         res = items.filter(
@@ -44,7 +44,7 @@ class Search extends React.Component {
         );
 
       res.forEach(i => (i['name'] = Service.firstLetterToUpper(i['name'])));
-      console.log(res);
+      // console.log(res);
     }
 
     if (res !== undefined) this.setState({ searchedItem: res });

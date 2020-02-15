@@ -16,7 +16,6 @@ a {
 
 .slider {
   max-width: 900px;
-  // height: 600px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -102,7 +101,6 @@ a {
 #r2:checked {
   & ~ .slides {
     margin-left: -100%;
-    // transform: translateX(-25%)
   }
 
   & ~ .slider_nav .c2 {

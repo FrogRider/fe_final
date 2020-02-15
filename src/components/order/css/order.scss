@@ -30,7 +30,6 @@
   transition: padding 0.2s, border 0.3s ease ;
 
   &:hover {
-    // transition: .3s;
     padding: 5px;
   }
 
@@ -84,7 +83,6 @@
 }
 
 .unvis {
-  // opacity: 0.2;
   border-top-left-radius: 50% ;
   transform: translateX(110%) translateY(110%);
 
@@ -111,10 +109,6 @@
 .visible .orderItem {
   padding: 5px;
   text-align: justify;
-
-  &:first-of-type {
-    // padding-top: 1000px;
-  }
 }
 
 .close {

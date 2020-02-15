@@ -3,7 +3,6 @@
 @import './sort.scss';
 
 .card {
-  // border: 2px solid rgb(136, 136, 136);
   border-radius: 10px;
   padding-top: 1em;
   position: relative;
@@ -18,11 +17,9 @@
       display: block;
       color: #888;
       width: fit-content;
-      // background: red;
       text-align: right;
       padding: 0;
       z-index: 15;
-      // right: 9px;
     }
   }
 
@@ -40,7 +37,6 @@
       height: 100%;
       filter: drop-shadow(0 0 11px  rgba(0, 0, 0, 0.1));
       background-color: #ccc;
-      // 0px 0px 22px 2px rgba(0,0,0,0.54)
     }
   }
 }
@@ -92,7 +88,6 @@ button {
 
 .dishesContainer {
   min-height: calc(100vh - 3em) ;
-  // max-width: 1150px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
@@ -138,7 +133,6 @@ button {
       cursor: pointer;
     }
   }
-  // height: 300px;
 }
 
 .pagination .paginationFirst, .pagination .paginationLast{

@@ -9,9 +9,7 @@
   margin-top: 1em;
 
   & .col {
-    // max-height: calc(100vh - 5em);
     overflow-y: scroll;
-    // background: red;
 
     &:last-of-type {
       margin-left: 10px;
@@ -38,7 +36,6 @@
 .col2 {
   display: flex;
   justify-content: space-between;
-  // align-items: space-evenly;
   flex-direction: column  ;
 }
 

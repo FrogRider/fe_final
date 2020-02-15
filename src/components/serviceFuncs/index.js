@@ -1,5 +1,6 @@
-import axios from 'axios';
+// import axios from 'axios';
 import state from '../state/someState';
+import firebase from '../../firebase.js'
 
 class Services {
   firstLetterToUpper = string => {
@@ -128,26 +129,35 @@ class Services {
       case 'default':
         return data;
       default:
-        if(state['debugger']) console.log(
-          `%c ${type} doesn't supported for sorting! `,
-          'color: orange'
-        );
-        
+        if (state['debugger'])
+          console.log(
+            `%c ${type} doesn't supported for sorting! `,
+            'color: orange'
+          );
     }
   };
 
   async prepareData() {
     let updatedMeals; //final filtered data goes here
     //get dishes from json
-    await axios.get('/structure.json').then(res => {
-      updatedMeals = res['data'];
-    });
+
+    const data = firebase.database().ref('data');
+    const snapshot = await data.once('value');
+    updatedMeals = snapshot.val();
+    // console.log(value)
+    // data.on('value', snapshot => {
+    //   console.log(snapshot.val());
+    // });
+
+    // await axios.get('./structure.json').then(res => {
+    //   updatedMeals = res['data'];
+    // });
 
     //filter dishes by days
     updatedMeals.forEach(meal => {
       let days = meal['availableOn'];
       //TODO: fake day
-      if (days.indexOf(/*fake day here*/this.getWeekDay()) === -1) {
+      if (days.indexOf(/*fake day here*/ this.getWeekDay()) === -1) {
         if (meal['disabled'] === false) {
           if (state['debugger'] === true)
             console.log(

@@ -6,10 +6,10 @@
 
 let reducer = (state, action) => {
   switch (action.type) {
-    case 'say': {
-      console.log(state);
-      return state;
-    }
+    // case 'say': {
+    //   console.log(state);
+    //   return state;
+    // }
 
     case 'errase': {
       state['dishes'] = [];

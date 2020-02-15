@@ -84,7 +84,7 @@ const Order = () => {
         />
         <div className="orderContent">
           {!!order && order.length > 1 ? 
-            <OrderInner order={order} delItem={delItem} />
+            <OrderInner order={ order } delItem={delItem} />
            : 
             <EmptyOrder />
           }

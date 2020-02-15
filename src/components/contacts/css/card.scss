@@ -14,10 +14,6 @@
     margin-top: 10px;
   }
 
-  &:last-of-type {
-    // margin-bottom: 10px;
-  }
-
   & img {
     position: absolute;
     width: 20%;
@@ -30,7 +26,6 @@
 
   &:hover img {
     transform: translateX(-50%) translateY(-100%);
-    // background: #ff6347;
     filter: invert(49%) sepia(56%) saturate(2783%) hue-rotate(333deg) brightness(95%) contrast(102%);
     opacity: .6;
   }

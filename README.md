@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+###### This project was bootstrapped with [Create React App].
 
-## Available Scripts
+# Food delivery app powered by React
 
-In the project directory, you can run:
+### Features:
 
-### `yarn start`
+  - Filter dishes by vegiterian, diet, gluten- containing and cuisines;
+  - List of dishes dependns on current day of the week;
+  - Search through all the available dishes;
+  - Sort your dishes by the name or by the price;
+  - Add separate dishes to the order, or select randomly generated menu;
+  - Edit your order, confirm or clear it (unable to confirm order containing outdated (unavailable today) dishes);
+  - Light or dark theme is set automatically according to your system's theme;
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Screenshots:
+![Image](https://i.imgur.com/enePqhv.png)
+![Image](https://i.imgur.com/RMzLM8Q.png)
+![Image](https://i.imgur.com/0hn2IeS.png)
+![Image](https://i.imgur.com/BdznRhJ.png)
+![Image](https://i.imgur.com/wXZUtzV.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Tech
 
-### `yarn test`
+* [React] - declarative, efficient, and flexible JavaScript library for building user interfaces;
+* [SCSS] -  preprocessor which lets you use features that aren't a part of the wider CSS standard;
+* [Firebase] - Google's mobile application development platform;
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> In the previous versions of the app, [Axios] was used to get Json file.
+> Firebase is used for storing and getting data as a back-end part in the latest version.
 
-### `yarn build`
+### Installation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+App requires [Node.js] to run.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### If  you have git installed on your machine:
+```sh
+$ git clone https://github.com/FrogRider/fe_final.git
+$ cd fe_final
+$ npm install
+$ npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### If  you haven't git installed on your machine:
 
-### `yarn eject`
+1) Download archive from [here](https://github.com/FrogRider/fe_final);
+2) Unzip downloaded archive;
+3) Open your downloads folder via terminal;
+4) Run:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+$ cd fe_final
+$ npm install
+$ npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[//]: # (Reference links)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+   [react]: <https://reactjs.org/>
+   [SCSS]: <https://sass-lang.com/documentation/syntax>
+   [Firebase]: <https://firebase.google.com/>
+   [Axios]: <https://www.npmjs.com/package/axios>
+   [Node.js]: <https://nodejs.org/>
+   [Create React App]: <https://github.com/facebook/create-react-app>
